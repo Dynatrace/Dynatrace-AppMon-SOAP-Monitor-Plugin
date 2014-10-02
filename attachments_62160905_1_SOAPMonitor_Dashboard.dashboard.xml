@@ -1,0 +1,666 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ATTENTION - THIS IS AN AUTOMATICALLY GENERATED FILE -->
+<!-- Manual changes can cause severe problems and system instability -->
+<!-- Apply manual changes only if you have received explicit instructions from dynaTrace Support -->
+<dynatrace version="4.0.0.2599" date="11/3/11 1:04 PM">
+  <dashboardconfig memento.version="4.0.0.2599" icon="com.dynatrace.diagnostics.sdk/default.gif" sessiontype="live" locationassource="true" authorname="admin" opendrilldowninnewdashboard="false" sessionid="WebSphere MessageBroker" bgcolor="255,255,255,255" modified="2011-11-03T13:04:13+0100" id="02a588df-4421-45f2-8d94-4e613ba711be" revision="00000133-6950-a92b-a736-f5cb31b89df8" created="2011-10-25T21:14:52+0200" description="" name="SOAPMonitor Dashboard" modifiedbyname="wolfgang.gottesheim" locationascomparesource="false">
+    <reportconfig lines.per.table="100" enabled="true" print.legends="true" orientation="portrait" pagesize="A4" type="PDF" title="" override="false" levels.per.tree="10" description="" print.images="true" formatpdf="PDF Report" />
+    <filter>
+      <criterion completepurepath="true" type="agents" mode="all">
+        <textpattern enabled="true" name="agentname" type="contains" />
+        <textpattern enabled="true" name="agenthost" type="contains" />
+      </criterion>
+      <criterion excludeexternalsubpaths="false" type="api" mode="all" />
+      <criterion type="applications" mode="all" />
+      <criterion showrendering="true" isactive="true" shownetwork="true" showjavascript="true" type="browserpathtype" />
+      <criterion timerenabled="false" pageenabled="false" type="browsersectionfilter">
+        <timername>
+          <stringmatchpattern text="" match="contains" />
+        </timername>
+        <pageurl>
+          <stringmatchpattern text="" match="contains" />
+        </pageurl>
+      </criterion>
+      <criterion type="btm" />
+      <criterion isactive="true" analyzeserverpath="true" type="enduserpath" analyzeenduserpath="true" />
+      <criterion completepurepath="true" type="hosts" mode="all" />
+      <criterion severities="" statesmode="all" severitiesmode="all" states="" rulesmode="all" type="incident" />
+      <criterion type="purepaths" mode="all" />
+      <criterion showrendering="true" isactive="false" shownetwork="true" showjavascript="true" type="riapurepathtype" requestcriterion="ALL" />
+      <criterion includemeasurename="true" includetestname="true" type="tests" teststatus="OK" />
+      <criterion enabled="false" filterbyid="false" type="threads" />
+      <criterion type="timeframe">
+        <timeframe start="0" type="Auto" end="9223372036854775807" />
+      </criterion>
+      <criterion type="visits">
+        <visitidset visitsidsetsize="0" />
+      </criterion>
+      <criterion type="webpage">
+        <textpattern enabled="true" name="timerName" type="contains" />
+        <textpattern enabled="true" name="pageContext" type="contains" />
+      </criterion>
+      <criterion type="webrequest">
+        <filteruripattern>
+          <stringmatchpattern text="" match="contains" />
+        </filteruripattern>
+        <filterquerypattern>
+          <stringmatchpattern text="" match="contains" />
+        </filterquerypattern>
+      </criterion>
+    </filter>
+    <autorefreshconfig unit="MINUTES" enabled="true" time="30" />
+    <designconfig descriptionalignment="CENTER" descriptionfontstyle="NORMAL" namealignment="CENTER" descriptionfontsize="8" nameshow="true" clienttheme="NIGHT" headertype="CUSTOM" namefontsize="10" descriptionshow="true" autoadjustfontsizes="false" namefontstyle="BOLD" descriptionfontcolor="128,128,128" />
+    <dashboardlayout>
+      <portletfolder relationtype="LEFT" ratio="0.95" folderid="org.eclipse.ui.internal.ViewStack@c8e79c" selectionindex="0" relatedfolderid="DashboardLayout.blankArea" portletconfigorder="9aa0e2b3-246b-4559-a313-944392957e2d">
+        <designconfig descriptionalignment="CENTER" descriptionfontstyle="NORMAL" namealignment="CENTER" inherited="true" descriptionfontsize="8" nameshow="true" headertype="DEFAULT" namefontsize="10" descriptionshow="true" namefontstyle="BOLD" descriptionfontcolor="128,128,128" />
+      </portletfolder>
+      <portletfolder relationtype="BOTTOM" ratio="0.45328283" folderid="org.eclipse.ui.internal.ViewStack@369d9d" selectionindex="0" relatedfolderid="org.eclipse.ui.internal.ViewStack@c8e79c" portletconfigorder="a57fa633-2d44-4679-b275-a09917a2d7cb">
+        <designconfig descriptionalignment="CENTER" descriptionfontstyle="NORMAL" namealignment="CENTER" inherited="true" descriptionfontsize="8" nameshow="true" headertype="DEFAULT" namefontsize="10" descriptionshow="true" namefontstyle="BOLD" descriptionfontcolor="128,128,128" />
+      </portletfolder>
+      <portletfolder relationtype="RIGHT" ratio="0.35388568" folderid="org.eclipse.ui.internal.ViewStack@1be5ddf" selectionindex="0" relatedfolderid="org.eclipse.ui.internal.ViewStack@369d9d" portletconfigorder="d5b7d32c-bbfa-44f8-af56-5f977c1a95f4">
+        <designconfig descriptionalignment="CENTER" descriptionfontstyle="NORMAL" namealignment="CENTER" inherited="true" descriptionfontsize="8" nameshow="true" headertype="DEFAULT" namefontsize="10" descriptionshow="true" namefontstyle="BOLD" descriptionfontcolor="128,128,128" />
+      </portletfolder>
+      <portletfolder relationtype="RIGHT" ratio="0.5" folderid="org.eclipse.ui.internal.ViewStack@1126144" selectionindex="0" relatedfolderid="org.eclipse.ui.internal.ViewStack@1be5ddf" portletconfigorder="e4426515-d462-4b77-bba6-f8602dc60744">
+        <designconfig descriptionalignment="CENTER" descriptionfontstyle="NORMAL" namealignment="CENTER" inherited="true" descriptionfontsize="8" nameshow="true" headertype="DEFAULT" namefontsize="10" descriptionshow="true" namefontstyle="BOLD" descriptionfontcolor="128,128,128" />
+      </portletfolder>
+      <portletfolder relationtype="RIGHT" ratio="0.16441876" folderid="org.eclipse.ui.internal.ViewStack@1741921" selectionindex="0" relatedfolderid="org.eclipse.ui.internal.ViewStack@c8e79c" portletconfigorder="4cb8abe6-dd1f-42fb-95a6-9e416f0324f3">
+        <designconfig descriptionalignment="CENTER" descriptionfontstyle="NORMAL" namealignment="CENTER" inherited="true" descriptionfontsize="8" nameshow="true" headertype="DEFAULT" namefontsize="10" descriptionshow="true" namefontstyle="BOLD" descriptionfontcolor="128,128,128" />
+      </portletfolder>
+      <portletfolder relationtype="RIGHT" ratio="0.49884704" folderid="org.eclipse.ui.internal.ViewStack@972900" selectionindex="0" relatedfolderid="org.eclipse.ui.internal.ViewStack@1741921" portletconfigorder="c7a2bfeb-b126-4377-8380-a8e8d491ede0">
+        <designconfig descriptionalignment="CENTER" descriptionfontstyle="NORMAL" namealignment="CENTER" inherited="true" descriptionfontsize="8" nameshow="true" headertype="DEFAULT" namefontsize="10" descriptionshow="true" namefontstyle="BOLD" descriptionfontcolor="128,128,128" />
+      </portletfolder>
+      <portletfolder relationtype="BOTTOM" ratio="0.49874055" folderid="org.eclipse.ui.internal.ViewStack@1e33d48" selectionindex="0" relatedfolderid="org.eclipse.ui.internal.ViewStack@c8e79c" portletconfigorder="22903d25-3020-4b48-9ded-7005b16df826">
+        <designconfig descriptionalignment="CENTER" descriptionfontstyle="NORMAL" namealignment="CENTER" inherited="true" descriptionfontsize="8" nameshow="true" headertype="DEFAULT" namefontsize="10" descriptionshow="true" namefontstyle="BOLD" descriptionfontcolor="128,128,128" />
+      </portletfolder>
+    </dashboardlayout>
+    <portletconfig icon="com.dynatrace.diagnostics.sdk/chart_cust.png" usespecificautorefresh="false" usedashboardsourceforcompare="true" folderid="org.eclipse.ui.internal.ViewStack@1741921" sessiontype="live" locationassource="true" usedashboardsource="true" sessionid="WebSphere MessageBroker" bgcolor="236,233,216,255" id="4cb8abe6-dd1f-42fb-95a6-9e416f0324f3" addfilterinfo="false" description="" lastvalue="false" name="SOAP Service Performance" typeid="com.dynatrace.diagnostics.portlets.chart.Chart" ismaster="false" showabsolutevalues="false" locationascomparesource="false">
+      <reportconfig lines.per.table="100" print.legends="true" enabled="true" levels.per.tree="10" override="false" print.images="true" reportposition="1" />
+      <filter>
+        <criterion completepurepath="true" type="agents" mode="all">
+          <textpattern enabled="true" name="agentname" type="contains" />
+          <textpattern enabled="true" name="agenthost" type="contains" />
+        </criterion>
+        <criterion type="applications" mode="all" />
+        <criterion completepurepath="true" type="hosts" mode="all" />
+        <criterion type="timeframe">
+          <timeframe start="0" type="Auto" end="9223372036854775807" />
+        </criterion>
+        <criterion type="visits">
+          <visitidset visitsidsetsize="0" />
+        </criterion>
+        <inheritancemap />
+      </filter>
+      <autorefreshconfig unit="MINUTES" enabled="true" time="30" />
+      <sashconfig weights="500,500" displayoption="CHART" />
+      <datamodelconfig>
+        <chart maxdisplayitems="10" axis.x.title="" legendposition="Bottom" zoomable="true" showtooltips="true" bounds.y.lower="0.0" charttype="StackedAreaChart" resolution="Auto" isentitymarkable="false" title="" showlabels="true" yaxisalignment="0" showname="true" splitcharts="true" bounds.y.enabled="true" axis.y.show="true" bounds.y.upper="500.0" subchartweights="1000" orientation="Horizontal" axis.y.title="" axis.y.title.show="true" limititems="false" axis.x.show="true" axis.x.title.show="true" logxaxis="false" showheatfield="true" showvalues="false" showtitle="false" showlegend="false">
+          <legendcomposition splittings="true" measure="true">
+            <pielabelcomposition unit="true" value="true" />
+          </legendcomposition>
+          <chartsource position="-1" scale="0" visible="true" sessiontype="live" parentid="5f27b084-3325-471c-983a-eb7792b19aef" aggregationtype="Avg" uiunit="ms" groupingvalue="" id="5b53c320-3000-3c81-b037-5ecf7399e1d3" fetchmeasurecolor="false" overridesource="true" rate="10s" ratesupported="false" name="ResponseCompleteTime" sourcecolor="RGB(89,47,13,255)" sourcetype="MEASURE" dynamicconfig="true" autounit="false" sessionid="WebSphere MessageBroker" groupingcriterion="AgentOrMonitor" displayrate="10s" unit="ms" systemid="WebSphere MessageBroker" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="true" autoscale="false">
+            <tagtolabel />
+            <lightweightuniquemeasureidentifier keyid="ResponseCompleteTime" metricgroupkey="SOAP Monitor" collector="" systemid="WebSphere MessageBroker" application="" agenthost="cmiller" parentkeyid="ResponseCompleteTime" metrickeyid="ResponseCompleteTime" agentname="WMB FindAddress SOAP Monitor" />
+            <displaysourceinfo agenthost="cmiller" monitorhost="cmiller" monitordetails="WMB FindAddress SOAP Monitor" agentname="WMB FindAddress SOAP Monitor" measureunit="ms" monitorscheduleid="WMB FindAddress SOAP Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="2" scale="0" visible="false" sessiontype="live" colorinheritancemode="random" aggregationtype="Avg" uiunit="ms" groupingvalue="" id="b9da49be-2488-4e89-ac4c-c9f471fcd950" fetchmeasurecolor="true" overridesource="false" rate="10s" ratesupported="false" name="ResponseCompleteTime" sourcecolor="RGB(192,128,64,255)" sourcetype="MEASURE" dynamicconfig="false" autounit="false" sessionid="WebSphere MessageBroker" groupingcriterion="AgentOrMonitor" displayrate="10s" systemid="WebSphere MessageBroker" unit="ms" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="true" autoscale="false">
+            <tagtolabel />
+            <lightweightuniquemeasureidentifier keyid="ResponseCompleteTime" metricgroupkey="SOAP Monitor" collector="" systemid="WebSphere MessageBroker" application="" agenthost="" parentkeyid="ResponseCompleteTime" metrickeyid="ResponseCompleteTime" agentname="WMB SaveAddress SOAP Monitor" />
+            <displaysourceinfo monitorhost="&lt;all-hosts&gt;" monitordetails="WMB SaveAddress SOAP Monitor" measureunit="ms" monitorscheduleid="WMB SaveAddress SOAP Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="-1" scale="0" visible="true" sessiontype="live" parentid="b9da49be-2488-4e89-ac4c-c9f471fcd950" aggregationtype="Avg" uiunit="ms" groupingvalue="" id="1e655f12-3509-3b2e-85c6-ac8f066ab359" fetchmeasurecolor="false" overridesource="true" rate="10s" ratesupported="false" name="ResponseCompleteTime" sourcecolor="RGB(213,235,122,255)" sourcetype="MEASURE" dynamicconfig="true" autounit="false" sessionid="WebSphere MessageBroker" groupingcriterion="AgentOrMonitor" displayrate="10s" unit="ms" systemid="WebSphere MessageBroker" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="true" autoscale="false">
+            <tagtolabel />
+            <lightweightuniquemeasureidentifier keyid="ResponseCompleteTime" metricgroupkey="SOAP Monitor" collector="" systemid="WebSphere MessageBroker" application="" agenthost="cmiller" parentkeyid="ResponseCompleteTime" metrickeyid="ResponseCompleteTime" agentname="WMB SaveAddress SOAP Monitor" />
+            <displaysourceinfo agenthost="cmiller" monitorhost="cmiller" monitordetails="WMB SaveAddress SOAP Monitor" agentname="WMB SaveAddress SOAP Monitor" measureunit="ms" monitorscheduleid="WMB SaveAddress SOAP Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="1" scale="0" visible="false" sessiontype="live" colorinheritancemode="random" aggregationtype="Avg" uiunit="ms" groupingvalue="" id="5f27b084-3325-471c-983a-eb7792b19aef" fetchmeasurecolor="false" overridesource="true" rate="10s" ratesupported="false" name="ResponseCompleteTime" sourcecolor="RGB(51,51,51,255)" sourcetype="MEASURE" dynamicconfig="false" autounit="false" sessionid="WebSphere MessageBroker" groupingcriterion="AgentOrMonitor" displayrate="10s" systemid="WebSphere MessageBroker" unit="ms" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="true" autoscale="false">
+            <tagtolabel />
+            <lightweightuniquemeasureidentifier keyid="ResponseCompleteTime" metricgroupkey="SOAP Monitor" collector="" systemid="WebSphere MessageBroker" application="" agenthost="" parentkeyid="ResponseCompleteTime" metrickeyid="ResponseCompleteTime" agentname="WMB FindAddress SOAP Monitor" />
+            <displaysourceinfo monitorhost="&lt;all-hosts&gt;" monitordetails="WMB FindAddress SOAP Monitor" measureunit="ms" monitorscheduleid="WMB FindAddress SOAP Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="-1" scale="0" visible="true" sessiontype="live" parentid="5f27b084-3325-471c-983a-eb7792b19aef" aggregationtype="Avg" uiunit="ms" groupingvalue="" id="1586a990-88a8-3eab-a25f-c654c975579f" fetchmeasurecolor="false" overridesource="true" rate="10s" ratesupported="false" name="ResponseCompleteTime" sourcecolor="RGB(74,89,13,255)" sourcetype="MEASURE" dynamicconfig="true" autounit="false" sessionid="WebSphere MessageBroker" groupingcriterion="AgentOrMonitor" displayrate="10s" unit="ms" systemid="WebSphere MessageBroker" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="false" autoscale="false">
+            <tagtolabel />
+            <lightweightuniquemeasureidentifier keyid="ResponseCompleteTime" metricgroupkey="SOAP Monitor" collector="" systemid="WebSphere MessageBroker" application="" agenthost="cmiller" parentkeyid="ResponseCompleteTime" metrickeyid="ResponseCompleteTime" agentname="WMB FindAddress SOAP Monitor" />
+            <displaysourceinfo agenthost="cmiller" monitorhost="cmiller" monitordetails="WMB FindAddress SOAP Monitor" agentname="WMB SOAP Monitor" measureunit="ms" monitorscheduleid="WMB FindAddress SOAP Monitor" measurerate="purepath" />
+          </chartsource>
+          <splitconfig splitmode="Measure" splitlayout="Horizontal" />
+        </chart>
+        <table drawcolumn="-1" name="The Measure table" sortcolumn="0" structuremode="measureHierarchy" columnorder="0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19">
+          <column index="0" sort="Up" forcevisible="false" hidden="false" width="400" />
+          <column index="1" sort="None" forcevisible="false" hidden="true" width="100" />
+          <column index="2" sort="None" forcevisible="false" hidden="true" width="100" />
+          <column index="3" sort="None" forcevisible="false" hidden="false" width="25" />
+          <column index="4" sort="None" forcevisible="false" hidden="false" width="100" />
+          <column index="5" sort="None" forcevisible="true" hidden="false" width="100" />
+          <column index="6" sort="None" forcevisible="false" hidden="false" width="50" />
+          <column index="7" sort="None" forcevisible="false" hidden="true" width="75" />
+          <column index="8" sort="None" forcevisible="false" hidden="true" width="75" />
+          <column index="9" sort="None" forcevisible="false" hidden="true" width="75" />
+          <column index="10" sort="None" forcevisible="true" hidden="false" width="75" />
+          <column index="11" sort="None" forcevisible="false" hidden="true" width="75" />
+          <column index="12" sort="None" forcevisible="false" hidden="true" width="100" />
+          <column index="13" sort="None" forcevisible="false" hidden="false" width="105" />
+          <column index="14" sort="None" forcevisible="false" hidden="true" width="50" />
+          <column index="15" sort="None" forcevisible="false" hidden="true" width="50" />
+          <column index="16" sort="None" forcevisible="false" hidden="true" width="50" />
+          <column index="17" sort="None" forcevisible="false" hidden="true" width="150" />
+          <column index="18" sort="None" forcevisible="false" hidden="true" width="150" />
+          <column index="19" sort="None" forcevisible="false" hidden="true" width="150" />
+        </table>
+        <heatfieldconfig smartmeasure="true" filterconfirmed="false" smartserver="true" customevents="true">
+          <incidentrules />
+        </heatfieldconfig>
+      </datamodelconfig>
+      <chartcolors />
+    </portletconfig>
+    <portletconfig icon="com.dynatrace.diagnostics.sdk/chart_cust.png" usespecificautorefresh="false" usedashboardsourceforcompare="true" folderid="org.eclipse.ui.internal.ViewStack@1126144" sessiontype="live" locationassource="true" usedashboardsource="true" sessionid="WebSphere MessageBroker" bgcolor="236,233,216,255" id="e4426515-d462-4b77-bba6-f8602dc60744" addfilterinfo="false" description="" lastvalue="false" name="SOAP Service Host Reachable" typeid="com.dynatrace.diagnostics.portlets.chart.Chart" ismaster="false" showabsolutevalues="false" locationascomparesource="false">
+      <reportconfig lines.per.table="100" print.legends="true" enabled="true" levels.per.tree="10" override="false" print.images="true" reportposition="1" />
+      <filter>
+        <criterion completepurepath="true" type="agents" mode="all">
+          <textpattern enabled="true" name="agentname" type="contains" />
+          <textpattern enabled="true" name="agenthost" type="contains" />
+        </criterion>
+        <criterion type="applications" mode="all" />
+        <criterion completepurepath="true" type="hosts" mode="all" />
+        <criterion type="timeframe">
+          <timeframe start="0" type="Auto" end="9223372036854775807" />
+        </criterion>
+        <criterion type="visits">
+          <visitidset visitsidsetsize="0" />
+        </criterion>
+        <inheritancemap />
+      </filter>
+      <autorefreshconfig unit="MINUTES" enabled="true" time="30" />
+      <sashconfig weights="500,500" displayoption="CHART" />
+      <datamodelconfig>
+        <chart maxdisplayitems="10" axis.x.title="" legendposition="Bottom" zoomable="true" showtooltips="true" bounds.y.lower="0.0" charttype="LineChart" resolution="Auto" isentitymarkable="false" title="" showlabels="true" yaxisalignment="0" showname="true" splitcharts="true" bounds.y.enabled="true" axis.y.show="true" bounds.y.upper="1.1" subchartweights="1000" orientation="Horizontal" axis.y.title="" axis.y.title.show="true" limititems="false" axis.x.show="true" axis.x.title.show="true" logxaxis="false" showheatfield="true" showvalues="false" showtitle="false" showlegend="true">
+          <legendcomposition agent="true">
+            <pielabelcomposition unit="true" value="true" />
+          </legendcomposition>
+          <chartsource position="2" scale="0" visible="false" sessiontype="live" colorinheritancemode="random" aggregationtype="Avg" uiunit="number" groupingvalue="" id="612e8ca6-c6f7-4a8a-af6d-66c282a04d4e" fetchmeasurecolor="true" overridesource="false" rate="10s" ratesupported="false" name="HostReachable" sourcecolor="RGB(192,64,0,255)" sourcetype="MEASURE" dynamicconfig="false" autounit="false" sessionid="WebSphere MessageBroker" groupingcriterion="AgentOrMonitor" displayrate="10s" systemid="WebSphere MessageBroker" unit="number" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="true" autoscale="false">
+            <tagtolabel />
+            <lightweightuniquemeasureidentifier keyid="HostReachable" metricgroupkey="SOAP Monitor" collector="" systemid="WebSphere MessageBroker" application="" agenthost="" parentkeyid="HostReachable" metrickeyid="HostReachable" agentname="WMB SaveAddress SOAP Monitor" />
+            <displaysourceinfo monitorhost="&lt;all-hosts&gt;" monitordetails="WMB SaveAddress SOAP Monitor" measureunit="number" monitorscheduleid="WMB SaveAddress SOAP Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="1" scale="0" visible="false" sessiontype="live" colorinheritancemode="random" aggregationtype="Avg" uiunit="number" groupingvalue="" id="25c495e9-2c3a-4551-879b-770304fbea9c" fetchmeasurecolor="true" overridesource="false" rate="10s" ratesupported="false" name="HostReachable" sourcecolor="RGB(0,64,128,255)" sourcetype="MEASURE" dynamicconfig="false" autounit="false" sessionid="WebSphere MessageBroker" groupingcriterion="AgentOrMonitor" displayrate="10s" systemid="WebSphere MessageBroker" unit="number" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="true" autoscale="false">
+            <tagtolabel />
+            <lightweightuniquemeasureidentifier keyid="HostReachable" metricgroupkey="SOAP Monitor" collector="" systemid="WebSphere MessageBroker" application="" agenthost="" parentkeyid="HostReachable" metrickeyid="HostReachable" agentname="WMB FindAddress SOAP Monitor" />
+            <displaysourceinfo monitorhost="&lt;all-hosts&gt;" monitordetails="WMB FindAddress SOAP Monitor" measureunit="number" monitorscheduleid="WMB FindAddress SOAP Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="-1" scale="0" visible="true" sessiontype="live" parentid="612e8ca6-c6f7-4a8a-af6d-66c282a04d4e" aggregationtype="Avg" uiunit="number" groupingvalue="" id="5e77d02c-99aa-3dea-8e8b-5d50fc4122f2" fetchmeasurecolor="false" overridesource="true" rate="10s" ratesupported="false" name="HostReachable" sourcecolor="RGB(122,182,235,255)" sourcetype="MEASURE" dynamicconfig="true" autounit="false" sessionid="WebSphere MessageBroker" groupingcriterion="AgentOrMonitor" displayrate="10s" unit="number" systemid="WebSphere MessageBroker" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="true" autoscale="false">
+            <tagtolabel />
+            <lightweightuniquemeasureidentifier keyid="HostReachable" metricgroupkey="SOAP Monitor" collector="" systemid="WebSphere MessageBroker" application="" agenthost="cmiller" parentkeyid="HostReachable" metrickeyid="HostReachable" agentname="WMB SaveAddress SOAP Monitor" />
+            <displaysourceinfo agenthost="cmiller" monitorhost="cmiller" monitordetails="WMB SaveAddress SOAP Monitor" agentname="WMB SaveAddress SOAP Monitor" measureunit="number" monitorscheduleid="WMB SaveAddress SOAP Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="-1" scale="0" visible="true" sessiontype="live" parentid="25c495e9-2c3a-4551-879b-770304fbea9c" aggregationtype="Avg" uiunit="number" groupingvalue="" id="d23edb31-dd8f-37f9-8f2f-9e6decb00be6" fetchmeasurecolor="false" overridesource="true" rate="10s" ratesupported="false" name="HostReachable" sourcecolor="RGB(229,116,77,255)" sourcetype="MEASURE" dynamicconfig="true" autounit="false" sessionid="WebSphere MessageBroker" groupingcriterion="AgentOrMonitor" displayrate="10s" unit="number" systemid="WebSphere MessageBroker" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="true" autoscale="false">
+            <tagtolabel />
+            <lightweightuniquemeasureidentifier keyid="HostReachable" metricgroupkey="SOAP Monitor" collector="" systemid="WebSphere MessageBroker" application="" agenthost="cmiller" parentkeyid="HostReachable" metrickeyid="HostReachable" agentname="WMB FindAddress SOAP Monitor" />
+            <displaysourceinfo agenthost="cmiller" monitorhost="cmiller" monitordetails="WMB FindAddress SOAP Monitor" agentname="WMB FindAddress SOAP Monitor" measureunit="number" monitorscheduleid="WMB FindAddress SOAP Monitor" measurerate="purepath" />
+          </chartsource>
+          <splitconfig splitmode="PerSeries" splitlayout="Horizontal" />
+        </chart>
+        <table drawcolumn="-1" name="The Measure table" sortcolumn="0" structuremode="measureHierarchy" columnorder="0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19">
+          <column index="0" sort="Up" forcevisible="false" hidden="false" width="400" />
+          <column index="1" sort="None" forcevisible="false" hidden="true" width="100" />
+          <column index="2" sort="None" forcevisible="false" hidden="true" width="100" />
+          <column index="3" sort="None" forcevisible="false" hidden="false" width="25" />
+          <column index="4" sort="None" forcevisible="false" hidden="false" width="100" />
+          <column index="5" sort="None" forcevisible="true" hidden="false" width="100" />
+          <column index="6" sort="None" forcevisible="false" hidden="false" width="50" />
+          <column index="7" sort="None" forcevisible="false" hidden="true" width="75" />
+          <column index="8" sort="None" forcevisible="false" hidden="true" width="75" />
+          <column index="9" sort="None" forcevisible="false" hidden="true" width="75" />
+          <column index="10" sort="None" forcevisible="true" hidden="false" width="75" />
+          <column index="11" sort="None" forcevisible="false" hidden="true" width="75" />
+          <column index="12" sort="None" forcevisible="false" hidden="true" width="100" />
+          <column index="13" sort="None" forcevisible="false" hidden="false" width="105" />
+          <column index="14" sort="None" forcevisible="false" hidden="true" width="50" />
+          <column index="15" sort="None" forcevisible="false" hidden="true" width="50" />
+          <column index="16" sort="None" forcevisible="false" hidden="true" width="50" />
+          <column index="17" sort="None" forcevisible="false" hidden="true" width="150" />
+          <column index="18" sort="None" forcevisible="false" hidden="true" width="150" />
+          <column index="19" sort="None" forcevisible="false" hidden="true" width="150" />
+        </table>
+        <heatfieldconfig smartmeasure="true" filterconfirmed="false" smartserver="true" customevents="true">
+          <incidentrules />
+        </heatfieldconfig>
+      </datamodelconfig>
+      <chartcolors />
+    </portletconfig>
+    <portletconfig icon="com.dynatrace.diagnostics.sdk/chart_cust.png" usespecificautorefresh="false" usedashboardsourceforcompare="true" folderid="org.eclipse.ui.internal.ViewStack@1e33d48" sessiontype="live" locationassource="true" usedashboardsource="true" sessionid="WebSphere MessageBroker" bgcolor="236,233,216,255" id="22903d25-3020-4b48-9ded-7005b16df826" addfilterinfo="false" description="" lastvalue="false" name="SOAP Service Performance" typeid="com.dynatrace.diagnostics.portlets.chart.Chart" ismaster="false" showabsolutevalues="false" locationascomparesource="false">
+      <reportconfig lines.per.table="100" print.legends="true" enabled="true" levels.per.tree="10" override="false" print.images="true" reportposition="1" />
+      <filter>
+        <criterion completepurepath="true" type="agents" mode="all">
+          <textpattern enabled="true" name="agentname" type="contains" />
+          <textpattern enabled="true" name="agenthost" type="contains" />
+        </criterion>
+        <criterion type="applications" mode="all" />
+        <criterion completepurepath="true" type="hosts" mode="all" />
+        <criterion type="timeframe">
+          <timeframe start="0" type="Auto" end="9223372036854775807" />
+        </criterion>
+        <criterion type="visits">
+          <visitidset visitsidsetsize="0" />
+        </criterion>
+        <inheritancemap />
+      </filter>
+      <autorefreshconfig unit="MINUTES" enabled="true" time="30" />
+      <sashconfig weights="500,500" displayoption="CHART" />
+      <datamodelconfig>
+        <chart maxdisplayitems="10" axis.x.title="" legendposition="Bottom" zoomable="true" showtooltips="true" charttype="TrafficLightChart" resolution="Auto" isentitymarkable="false" title="" showlabels="true" yaxisalignment="0" showname="true" splitcharts="false" bounds.y.enabled="false" axis.y.show="true" subchartweights="200" orientation="Horizontal" axis.y.title="" axis.y.title.show="false" limititems="false" axis.x.show="true" axis.x.title.show="false" logxaxis="false" showheatfield="true" showvalues="false" showtitle="false" showlegend="false">
+          <legendcomposition splittings="true" measure="true">
+            <pielabelcomposition unit="true" value="true" />
+          </legendcomposition>
+          <chartsource position="-1" scale="0" visible="true" sessiontype="live" parentid="122b7a25-2cf0-466d-aabc-e0b959228aea" aggregationtype="Avg" uiunit="bytes" groupingvalue="" id="0ef9a440-a836-352d-a50f-4bf4638cf8f6" fetchmeasurecolor="false" overridesource="true" rate="10s" ratesupported="false" name="ResponseSize" sourcecolor="RGB(89,13,81,255)" sourcetype="MEASURE" dynamicconfig="true" autounit="false" sessionid="WebSphere MessageBroker" groupingcriterion="AgentOrMonitor" displayrate="10s" unit="bytes" systemid="WebSphere MessageBroker" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="true" autoscale="false">
+            <tagtolabel />
+            <lightweightuniquemeasureidentifier keyid="ResponseSize" metricgroupkey="SOAP Monitor" collector="" systemid="WebSphere MessageBroker" application="" agenthost="cmiller" parentkeyid="ResponseSize" metrickeyid="ResponseSize" agentname="WMB FindAddress SOAP Monitor" />
+            <displaysourceinfo agenthost="cmiller" monitorhost="cmiller" monitordetails="WMB FindAddress SOAP Monitor" agentname="WMB FindAddress SOAP Monitor" measureunit="bytes" monitorscheduleid="WMB FindAddress SOAP Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="-1" scale="0" visible="true" sessiontype="live" parentid="b6d301dd-9e66-4ac9-99d1-2484382dd558" aggregationtype="Avg" uiunit="ms" groupingvalue="" id="ac273082-6b2f-3c1c-bcee-acf107462a0b" fetchmeasurecolor="false" overridesource="true" rate="10s" ratesupported="false" name="ResponseCompleteTime" sourcecolor="RGB(127,222,33,255)" sourcetype="MEASURE" dynamicconfig="true" autounit="false" sessionid="WebSphere MessageBroker" groupingcriterion="AgentOrMonitor" displayrate="10s" unit="ms" systemid="WebSphere MessageBroker" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="true" autoscale="false">
+            <tagtolabel />
+            <lightweightuniquemeasureidentifier keyid="ResponseCompleteTime" metricgroupkey="SOAP Monitor" collector="" systemid="WebSphere MessageBroker" application="" agenthost="cmiller" parentkeyid="ResponseCompleteTime" metrickeyid="ResponseCompleteTime" agentname="WMB FindAddress SOAP Monitor" />
+            <displaysourceinfo agenthost="cmiller" monitorhost="cmiller" monitordetails="WMB FindAddress SOAP Monitor" agentname="WMB FindAddress SOAP Monitor" measureunit="ms" monitorscheduleid="WMB FindAddress SOAP Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="-1" scale="0" visible="true" sessiontype="live" parentid="f8a48810-2078-4517-b610-6f3323ab9c68" aggregationtype="Avg" uiunit="bytes" groupingvalue="" id="dc97564d-8948-300e-bf5f-1d43a4f8caa1" fetchmeasurecolor="false" overridesource="true" rate="10s" ratesupported="false" name="ResponseSize" sourcecolor="RGB(235,203,122,255)" sourcetype="MEASURE" dynamicconfig="true" autounit="false" sessionid="WebSphere MessageBroker" groupingcriterion="AgentOrMonitor" displayrate="10s" unit="bytes" systemid="WebSphere MessageBroker" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="true" autoscale="false">
+            <tagtolabel />
+            <lightweightuniquemeasureidentifier keyid="ResponseSize" metricgroupkey="SOAP Monitor" collector="" systemid="WebSphere MessageBroker" application="" agenthost="cmiller" parentkeyid="ResponseSize" metrickeyid="ResponseSize" agentname="WMB SaveAddress SOAP Monitor" />
+            <displaysourceinfo agenthost="cmiller" monitorhost="cmiller" monitordetails="WMB SaveAddress SOAP Monitor" agentname="WMB SaveAddress SOAP Monitor" measureunit="bytes" monitorscheduleid="WMB SaveAddress SOAP Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="-1" scale="0" visible="true" sessiontype="live" parentid="4b86bffc-237e-4499-8cd6-0580e0fff706" aggregationtype="Avg" uiunit="ms" groupingvalue="" id="c72fa95a-0b09-3f35-bc31-46db4b9d0d65" fetchmeasurecolor="false" overridesource="true" rate="10s" ratesupported="false" name="ResponseCompleteTime" sourcecolor="RGB(47,27,177,255)" sourcetype="MEASURE" dynamicconfig="true" autounit="false" sessionid="WebSphere MessageBroker" groupingcriterion="AgentOrMonitor" displayrate="10s" unit="ms" systemid="WebSphere MessageBroker" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="true" autoscale="false">
+            <tagtolabel />
+            <lightweightuniquemeasureidentifier keyid="ResponseCompleteTime" metricgroupkey="SOAP Monitor" collector="" systemid="WebSphere MessageBroker" application="" agenthost="cmiller" parentkeyid="ResponseCompleteTime" metrickeyid="ResponseCompleteTime" agentname="WMB SaveAddress SOAP Monitor" />
+            <displaysourceinfo agenthost="cmiller" monitorhost="cmiller" monitordetails="WMB SaveAddress SOAP Monitor" agentname="WMB SaveAddress SOAP Monitor" measureunit="ms" monitorscheduleid="WMB SaveAddress SOAP Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="1" scale="0" visible="false" sessiontype="live" colorinheritancemode="random" aggregationtype="Avg" uiunit="ms" groupingvalue="" id="b6d301dd-9e66-4ac9-99d1-2484382dd558" fetchmeasurecolor="false" overridesource="false" rate="10s" ratesupported="false" name="ResponseCompleteTime" sourcecolor="RGB(128,0,192,255)" sourcetype="MEASURE" dynamicconfig="false" autounit="false" sessionid="WebSphere MessageBroker" groupingcriterion="AgentOrMonitor" displayrate="10s" systemid="WebSphere MessageBroker" unit="ms" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="true" autoscale="false">
+            <tagtolabel />
+            <lightweightuniquemeasureidentifier keyid="ResponseCompleteTime" metricgroupkey="SOAP Monitor" collector="" systemid="WebSphere MessageBroker" application="" agenthost="" parentkeyid="ResponseCompleteTime" metrickeyid="ResponseCompleteTime" agentname="WMB FindAddress SOAP Monitor" />
+            <displaysourceinfo monitorhost="&lt;all-hosts&gt;" monitordetails="WMB FindAddress SOAP Monitor" measureunit="ms" monitorscheduleid="WMB FindAddress SOAP Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="2" scale="0" visible="false" sessiontype="live" colorinheritancemode="random" aggregationtype="Avg" uiunit="ms" groupingvalue="" id="4b86bffc-237e-4499-8cd6-0580e0fff706" fetchmeasurecolor="false" overridesource="false" rate="10s" ratesupported="false" name="ResponseCompleteTime" sourcecolor="RGB(192,128,64,255)" sourcetype="MEASURE" dynamicconfig="false" autounit="false" sessionid="WebSphere MessageBroker" groupingcriterion="AgentOrMonitor" displayrate="10s" systemid="WebSphere MessageBroker" unit="ms" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="true" autoscale="false">
+            <tagtolabel />
+            <lightweightuniquemeasureidentifier keyid="ResponseCompleteTime" metricgroupkey="SOAP Monitor" collector="" systemid="WebSphere MessageBroker" application="" agenthost="" parentkeyid="ResponseCompleteTime" metrickeyid="ResponseCompleteTime" agentname="WMB SaveAddress SOAP Monitor" />
+            <displaysourceinfo monitorhost="&lt;all-hosts&gt;" monitordetails="WMB SaveAddress SOAP Monitor" measureunit="ms" monitorscheduleid="WMB SaveAddress SOAP Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="3" scale="0" visible="false" sessiontype="live" colorinheritancemode="random" aggregationtype="Avg" uiunit="bytes" groupingvalue="" id="122b7a25-2cf0-466d-aabc-e0b959228aea" fetchmeasurecolor="false" overridesource="false" rate="10s" ratesupported="false" name="ResponseSize" sourcecolor="RGB(192,128,128,255)" sourcetype="MEASURE" dynamicconfig="false" autounit="false" sessionid="WebSphere MessageBroker" groupingcriterion="AgentOrMonitor" displayrate="10s" systemid="WebSphere MessageBroker" unit="bytes" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="true" autoscale="false">
+            <tagtolabel />
+            <lightweightuniquemeasureidentifier keyid="ResponseSize" metricgroupkey="SOAP Monitor" collector="" systemid="WebSphere MessageBroker" application="" agenthost="" parentkeyid="ResponseSize" metrickeyid="ResponseSize" agentname="WMB FindAddress SOAP Monitor" />
+            <displaysourceinfo monitorhost="&lt;all-hosts&gt;" monitordetails="WMB FindAddress SOAP Monitor" measureunit="bytes" monitorscheduleid="WMB FindAddress SOAP Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="4" scale="0" visible="false" sessiontype="live" colorinheritancemode="random" aggregationtype="Avg" uiunit="bytes" groupingvalue="" id="f8a48810-2078-4517-b610-6f3323ab9c68" fetchmeasurecolor="false" overridesource="false" rate="10s" ratesupported="false" name="ResponseSize" sourcecolor="RGB(192,192,192,255)" sourcetype="MEASURE" dynamicconfig="false" autounit="false" sessionid="WebSphere MessageBroker" groupingcriterion="AgentOrMonitor" displayrate="10s" systemid="WebSphere MessageBroker" unit="bytes" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="true" autoscale="false">
+            <tagtolabel />
+            <lightweightuniquemeasureidentifier keyid="ResponseSize" metricgroupkey="SOAP Monitor" collector="" systemid="WebSphere MessageBroker" application="" agenthost="" parentkeyid="ResponseSize" metrickeyid="ResponseSize" agentname="WMB SaveAddress SOAP Monitor" />
+            <displaysourceinfo monitorhost="&lt;all-hosts&gt;" monitordetails="WMB SaveAddress SOAP Monitor" measureunit="bytes" monitorscheduleid="WMB SaveAddress SOAP Monitor" measurerate="purepath" />
+          </chartsource>
+          <splitconfig splitmode="PerSeries" splitlayout="Horizontal" />
+        </chart>
+        <table drawcolumn="-1" name="The Measure table" sortcolumn="0" structuremode="measureHierarchy" columnorder="0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19">
+          <column index="0" sort="Up" forcevisible="false" hidden="false" width="400" />
+          <column index="1" sort="None" forcevisible="false" hidden="true" width="100" />
+          <column index="2" sort="None" forcevisible="false" hidden="true" width="100" />
+          <column index="3" sort="None" forcevisible="false" hidden="false" width="25" />
+          <column index="4" sort="None" forcevisible="false" hidden="false" width="100" />
+          <column index="5" sort="None" forcevisible="true" hidden="false" width="100" />
+          <column index="6" sort="None" forcevisible="false" hidden="false" width="50" />
+          <column index="7" sort="None" forcevisible="false" hidden="true" width="75" />
+          <column index="8" sort="None" forcevisible="false" hidden="true" width="75" />
+          <column index="9" sort="None" forcevisible="false" hidden="true" width="75" />
+          <column index="10" sort="None" forcevisible="true" hidden="false" width="75" />
+          <column index="11" sort="None" forcevisible="false" hidden="true" width="75" />
+          <column index="12" sort="None" forcevisible="false" hidden="true" width="100" />
+          <column index="13" sort="None" forcevisible="false" hidden="false" width="105" />
+          <column index="14" sort="None" forcevisible="false" hidden="true" width="50" />
+          <column index="15" sort="None" forcevisible="false" hidden="true" width="50" />
+          <column index="16" sort="None" forcevisible="false" hidden="true" width="50" />
+          <column index="17" sort="None" forcevisible="false" hidden="true" width="150" />
+          <column index="18" sort="None" forcevisible="false" hidden="true" width="150" />
+          <column index="19" sort="None" forcevisible="false" hidden="true" width="150" />
+        </table>
+        <heatfieldconfig smartmeasure="true" filterconfirmed="false" smartserver="true" customevents="true">
+          <incidentrules />
+        </heatfieldconfig>
+      </datamodelconfig>
+      <chartcolors />
+    </portletconfig>
+    <portletconfig icon="com.dynatrace.diagnostics.sdk/chart_cust.png" usespecificautorefresh="false" usedashboardsourceforcompare="true" folderid="org.eclipse.ui.internal.ViewStack@1be5ddf" sessiontype="live" locationassource="true" usedashboardsource="true" sessionid="WebSphere MessageBroker" bgcolor="236,233,216,255" id="d5b7d32c-bbfa-44f8-af56-5f977c1a95f4" addfilterinfo="false" description="" lastvalue="false" name="SOAP Response Content Verified" typeid="com.dynatrace.diagnostics.portlets.chart.Chart" ismaster="false" showabsolutevalues="false" locationascomparesource="false">
+      <reportconfig lines.per.table="100" print.legends="true" enabled="true" levels.per.tree="10" override="false" print.images="true" reportposition="1" />
+      <filter>
+        <criterion completepurepath="true" type="agents" mode="all">
+          <textpattern enabled="true" name="agentname" type="contains" />
+          <textpattern enabled="true" name="agenthost" type="contains" />
+        </criterion>
+        <criterion type="applications" mode="all" />
+        <criterion completepurepath="true" type="hosts" mode="all" />
+        <criterion type="timeframe">
+          <timeframe start="0" type="Auto" end="9223372036854775807" />
+        </criterion>
+        <criterion type="visits">
+          <visitidset visitsidsetsize="0" />
+        </criterion>
+        <inheritancemap />
+      </filter>
+      <autorefreshconfig unit="MINUTES" enabled="true" time="30" />
+      <sashconfig weights="500,500" displayoption="CHART" />
+      <datamodelconfig>
+        <chart maxdisplayitems="10" axis.x.title="" legendposition="Bottom" zoomable="true" showtooltips="true" bounds.y.lower="0.0" charttype="LineChart" resolution="Auto" isentitymarkable="false" title="" showlabels="true" yaxisalignment="0" showname="true" splitcharts="true" bounds.y.enabled="true" axis.y.show="true" bounds.y.upper="1.1" subchartweights="1000" orientation="Horizontal" axis.y.title="" axis.y.title.show="true" limititems="false" axis.x.show="true" axis.x.title.show="true" logxaxis="false" showheatfield="true" showvalues="false" showtitle="false" showlegend="true">
+          <legendcomposition agent="true">
+            <pielabelcomposition unit="true" value="true" />
+          </legendcomposition>
+          <chartsource position="1" scale="0" visible="false" sessiontype="live" colorinheritancemode="random" aggregationtype="Avg" uiunit="number" groupingvalue="" id="b8509482-a3ce-4732-9bf3-b726e03bb21a" fetchmeasurecolor="true" overridesource="false" rate="10s" ratesupported="false" name="ContentVerified" sourcecolor="RGB(64,64,64,255)" sourcetype="MEASURE" dynamicconfig="false" autounit="false" sessionid="WebSphere MessageBroker" groupingcriterion="AgentOrMonitor" displayrate="10s" systemid="WebSphere MessageBroker" unit="number" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="true" autoscale="false">
+            <tagtolabel />
+            <lightweightuniquemeasureidentifier keyid="ContentVerified" metricgroupkey="SOAP Monitor" collector="" systemid="WebSphere MessageBroker" application="" agenthost="" parentkeyid="ContentVerified" metrickeyid="ContentVerified" agentname="WMB SaveAddress SOAP Monitor" />
+            <displaysourceinfo monitorhost="&lt;all-hosts&gt;" monitordetails="WMB SaveAddress SOAP Monitor" measureunit="number" monitorscheduleid="WMB SaveAddress SOAP Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="-1" scale="0" visible="true" sessiontype="live" parentid="1d6204d5-35d1-4ada-872a-a455b5a342ea" aggregationtype="Avg" uiunit="number" groupingvalue="" id="2cd78298-0549-305e-ba12-65c2059a50ad" fetchmeasurecolor="false" overridesource="true" rate="10s" ratesupported="false" name="ContentVerified" sourcecolor="RGB(131,236,121,255)" sourcetype="MEASURE" dynamicconfig="true" autounit="false" sessionid="WebSphere MessageBroker" groupingcriterion="AgentOrMonitor" displayrate="10s" unit="number" systemid="WebSphere MessageBroker" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="true" autoscale="false">
+            <tagtolabel />
+            <lightweightuniquemeasureidentifier keyid="ContentVerified" metricgroupkey="SOAP Monitor" collector="" systemid="WebSphere MessageBroker" application="" agenthost="cmiller" parentkeyid="ContentVerified" metrickeyid="ContentVerified" agentname="WMB FindAddress SOAP Monitor" />
+            <displaysourceinfo agenthost="cmiller" monitorhost="cmiller" monitordetails="WMB FindAddress SOAP Monitor" agentname="WMB FindAddress SOAP Monitor" measureunit="number" monitorscheduleid="WMB FindAddress SOAP Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="2" scale="0" visible="false" sessiontype="live" colorinheritancemode="random" aggregationtype="Avg" uiunit="number" groupingvalue="" id="1d6204d5-35d1-4ada-872a-a455b5a342ea" fetchmeasurecolor="true" overridesource="false" rate="10s" ratesupported="false" name="ContentVerified" sourcecolor="RGB(128,192,0,255)" sourcetype="MEASURE" dynamicconfig="false" autounit="false" sessionid="WebSphere MessageBroker" groupingcriterion="AgentOrMonitor" displayrate="10s" systemid="WebSphere MessageBroker" unit="number" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="true" autoscale="false">
+            <tagtolabel />
+            <lightweightuniquemeasureidentifier keyid="ContentVerified" metricgroupkey="SOAP Monitor" collector="" systemid="WebSphere MessageBroker" application="" agenthost="" parentkeyid="ContentVerified" metrickeyid="ContentVerified" agentname="WMB FindAddress SOAP Monitor" />
+            <displaysourceinfo monitorhost="&lt;all-hosts&gt;" monitordetails="WMB FindAddress SOAP Monitor" measureunit="number" monitorscheduleid="WMB FindAddress SOAP Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="-1" scale="0" visible="true" sessiontype="live" parentid="b8509482-a3ce-4732-9bf3-b726e03bb21a" aggregationtype="Avg" uiunit="number" groupingvalue="" id="e441d0a6-006e-3daa-a976-92205bda8457" fetchmeasurecolor="false" overridesource="true" rate="10s" ratesupported="false" name="ContentVerified" sourcecolor="RGB(178,156,26,255)" sourcetype="MEASURE" dynamicconfig="true" autounit="false" sessionid="WebSphere MessageBroker" groupingcriterion="AgentOrMonitor" displayrate="10s" unit="number" systemid="WebSphere MessageBroker" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="true" autoscale="false">
+            <tagtolabel />
+            <lightweightuniquemeasureidentifier keyid="ContentVerified" metricgroupkey="SOAP Monitor" collector="" systemid="WebSphere MessageBroker" application="" agenthost="cmiller" parentkeyid="ContentVerified" metrickeyid="ContentVerified" agentname="WMB SaveAddress SOAP Monitor" />
+            <displaysourceinfo agenthost="cmiller" monitorhost="cmiller" monitordetails="WMB SaveAddress SOAP Monitor" agentname="WMB SaveAddress SOAP Monitor" measureunit="number" monitorscheduleid="WMB SaveAddress SOAP Monitor" measurerate="purepath" />
+          </chartsource>
+          <splitconfig splitmode="PerSeries" splitlayout="Horizontal" />
+        </chart>
+        <table drawcolumn="-1" name="The Measure table" sortcolumn="0" structuremode="measureHierarchy" columnorder="0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19">
+          <column index="0" sort="Up" forcevisible="false" hidden="false" width="400" />
+          <column index="1" sort="None" forcevisible="false" hidden="true" width="100" />
+          <column index="2" sort="None" forcevisible="false" hidden="true" width="100" />
+          <column index="3" sort="None" forcevisible="false" hidden="false" width="25" />
+          <column index="4" sort="None" forcevisible="false" hidden="false" width="100" />
+          <column index="5" sort="None" forcevisible="true" hidden="false" width="100" />
+          <column index="6" sort="None" forcevisible="false" hidden="false" width="50" />
+          <column index="7" sort="None" forcevisible="false" hidden="true" width="75" />
+          <column index="8" sort="None" forcevisible="false" hidden="true" width="75" />
+          <column index="9" sort="None" forcevisible="false" hidden="true" width="75" />
+          <column index="10" sort="None" forcevisible="true" hidden="false" width="75" />
+          <column index="11" sort="None" forcevisible="false" hidden="true" width="75" />
+          <column index="12" sort="None" forcevisible="false" hidden="true" width="100" />
+          <column index="13" sort="None" forcevisible="false" hidden="false" width="105" />
+          <column index="14" sort="None" forcevisible="false" hidden="true" width="50" />
+          <column index="15" sort="None" forcevisible="false" hidden="true" width="50" />
+          <column index="16" sort="None" forcevisible="false" hidden="true" width="50" />
+          <column index="17" sort="None" forcevisible="false" hidden="true" width="150" />
+          <column index="18" sort="None" forcevisible="false" hidden="true" width="150" />
+          <column index="19" sort="None" forcevisible="false" hidden="true" width="150" />
+        </table>
+        <heatfieldconfig smartmeasure="true" filterconfirmed="false" smartserver="true" customevents="true">
+          <incidentrules />
+        </heatfieldconfig>
+      </datamodelconfig>
+      <chartcolors />
+    </portletconfig>
+    <portletconfig icon="com.dynatrace.diagnostics.sdk/chart_cust.png" usespecificautorefresh="false" usedashboardsourceforcompare="true" folderid="org.eclipse.ui.internal.ViewStack@369d9d" sessiontype="live" locationassource="true" usedashboardsource="true" sessionid="WebSphere MessageBroker" bgcolor="236,233,216,255" id="a57fa633-2d44-4679-b275-a09917a2d7cb" addfilterinfo="false" description="" lastvalue="false" name="SOAP HTTP Status Code" typeid="com.dynatrace.diagnostics.portlets.chart.Chart" ismaster="false" showabsolutevalues="false" locationascomparesource="false">
+      <reportconfig lines.per.table="100" print.legends="true" enabled="true" levels.per.tree="10" override="false" print.images="true" reportposition="1" />
+      <filter>
+        <criterion completepurepath="true" type="agents" mode="all">
+          <textpattern enabled="true" name="agentname" type="contains" />
+          <textpattern enabled="true" name="agenthost" type="contains" />
+        </criterion>
+        <criterion type="applications" mode="all" />
+        <criterion completepurepath="true" type="hosts" mode="all" />
+        <criterion type="timeframe">
+          <timeframe start="0" type="Auto" end="9223372036854775807" />
+        </criterion>
+        <criterion type="visits">
+          <visitidset visitsidsetsize="0" />
+        </criterion>
+        <inheritancemap />
+      </filter>
+      <autorefreshconfig unit="MINUTES" enabled="true" time="30" />
+      <sashconfig weights="500,500" displayoption="CHART" />
+      <datamodelconfig>
+        <chart maxdisplayitems="10" axis.x.title="" legendposition="Bottom" zoomable="true" showtooltips="true" charttype="LineChart" resolution="Auto" isentitymarkable="false" title="" showlabels="true" yaxisalignment="0" showname="true" splitcharts="true" bounds.y.enabled="false" axis.y.show="true" subchartweights="1000" orientation="Horizontal" axis.y.title="" axis.y.title.show="true" limititems="false" axis.x.show="true" axis.x.title.show="true" logxaxis="false" showheatfield="true" showvalues="false" showtitle="false" showlegend="true">
+          <legendcomposition agent="true">
+            <pielabelcomposition unit="true" value="true" />
+          </legendcomposition>
+          <chartsource position="2" scale="0" visible="false" sessiontype="live" colorinheritancemode="random" aggregationtype="Avg" uiunit="number" groupingvalue="" id="e47ca95e-2ec9-416e-96dc-3a7e0a958ac6" fetchmeasurecolor="true" overridesource="false" rate="10s" ratesupported="false" name="HttpStatusCode" sourcecolor="RGB(192,64,64,255)" sourcetype="MEASURE" dynamicconfig="false" autounit="false" sessionid="WebSphere MessageBroker" groupingcriterion="AgentOrMonitor" displayrate="10s" systemid="WebSphere MessageBroker" unit="number" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="true" autoscale="false">
+            <tagtolabel />
+            <lightweightuniquemeasureidentifier keyid="HttpStatusCode" metricgroupkey="SOAP Monitor" collector="" systemid="WebSphere MessageBroker" application="" agenthost="" parentkeyid="HttpStatusCode" metrickeyid="HttpStatusCode" agentname="WMB FindAddress SOAP Monitor" />
+            <displaysourceinfo monitorhost="&lt;all-hosts&gt;" monitordetails="WMB FindAddress SOAP Monitor" measureunit="number" monitorscheduleid="WMB FindAddress SOAP Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="-1" scale="0" visible="true" sessiontype="live" parentid="34798448-e695-4192-8961-911ab9914390" aggregationtype="Avg" uiunit="number" groupingvalue="" id="edb7f6ad-3820-3183-a8e4-44922e91582c" fetchmeasurecolor="false" overridesource="true" rate="10s" ratesupported="false" name="HttpStatusCode" sourcecolor="RGB(77,158,229,255)" sourcetype="MEASURE" dynamicconfig="true" autounit="false" sessionid="WebSphere MessageBroker" groupingcriterion="AgentOrMonitor" displayrate="10s" unit="number" systemid="WebSphere MessageBroker" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="true" autoscale="false">
+            <tagtolabel />
+            <lightweightuniquemeasureidentifier keyid="HttpStatusCode" metricgroupkey="SOAP Monitor" collector="" systemid="WebSphere MessageBroker" application="" agenthost="cmiller" parentkeyid="HttpStatusCode" metrickeyid="HttpStatusCode" agentname="WMB SaveAddress SOAP Monitor" />
+            <displaysourceinfo agenthost="cmiller" monitorhost="cmiller" monitordetails="WMB SaveAddress SOAP Monitor" agentname="WMB SaveAddress SOAP Monitor" measureunit="number" monitorscheduleid="WMB SaveAddress SOAP Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="1" scale="0" visible="false" sessiontype="live" colorinheritancemode="random" aggregationtype="Avg" uiunit="number" groupingvalue="" id="34798448-e695-4192-8961-911ab9914390" fetchmeasurecolor="true" overridesource="false" rate="10s" ratesupported="false" name="HttpStatusCode" sourcecolor="RGB(192,128,128,255)" sourcetype="MEASURE" dynamicconfig="false" autounit="false" sessionid="WebSphere MessageBroker" groupingcriterion="AgentOrMonitor" displayrate="10s" systemid="WebSphere MessageBroker" unit="number" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="true" autoscale="false">
+            <tagtolabel />
+            <lightweightuniquemeasureidentifier keyid="HttpStatusCode" metricgroupkey="SOAP Monitor" collector="" systemid="WebSphere MessageBroker" application="" agenthost="" parentkeyid="HttpStatusCode" metrickeyid="HttpStatusCode" agentname="WMB SaveAddress SOAP Monitor" />
+            <displaysourceinfo monitorhost="&lt;all-hosts&gt;" monitordetails="WMB SaveAddress SOAP Monitor" measureunit="number" monitorscheduleid="WMB SaveAddress SOAP Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="-1" scale="0" visible="true" sessiontype="live" parentid="e47ca95e-2ec9-416e-96dc-3a7e0a958ac6" aggregationtype="Avg" uiunit="number" groupingvalue="" id="ef00ed49-68e6-3cf5-8877-bdff692acab9" fetchmeasurecolor="false" overridesource="true" rate="10s" ratesupported="false" name="HttpStatusCode" sourcecolor="RGB(176,166,242,255)" sourcetype="MEASURE" dynamicconfig="true" autounit="false" sessionid="WebSphere MessageBroker" groupingcriterion="AgentOrMonitor" displayrate="10s" unit="number" systemid="WebSphere MessageBroker" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="true" autoscale="false">
+            <tagtolabel />
+            <lightweightuniquemeasureidentifier keyid="HttpStatusCode" metricgroupkey="SOAP Monitor" collector="" systemid="WebSphere MessageBroker" application="" agenthost="cmiller" parentkeyid="HttpStatusCode" metrickeyid="HttpStatusCode" agentname="WMB FindAddress SOAP Monitor" />
+            <displaysourceinfo agenthost="cmiller" monitorhost="cmiller" monitordetails="WMB FindAddress SOAP Monitor" agentname="WMB FindAddress SOAP Monitor" measureunit="number" monitorscheduleid="WMB FindAddress SOAP Monitor" measurerate="purepath" />
+          </chartsource>
+          <splitconfig splitmode="PerSeries" splitlayout="Horizontal" />
+        </chart>
+        <table drawcolumn="-1" name="The Measure table" sortcolumn="0" structuremode="measureHierarchy" columnorder="0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19">
+          <column index="0" sort="Up" forcevisible="false" hidden="false" width="400" />
+          <column index="1" sort="None" forcevisible="false" hidden="true" width="100" />
+          <column index="2" sort="None" forcevisible="false" hidden="true" width="100" />
+          <column index="3" sort="None" forcevisible="false" hidden="false" width="25" />
+          <column index="4" sort="None" forcevisible="false" hidden="false" width="100" />
+          <column index="5" sort="None" forcevisible="true" hidden="false" width="100" />
+          <column index="6" sort="None" forcevisible="false" hidden="false" width="50" />
+          <column index="7" sort="None" forcevisible="false" hidden="true" width="75" />
+          <column index="8" sort="None" forcevisible="false" hidden="true" width="75" />
+          <column index="9" sort="None" forcevisible="false" hidden="true" width="75" />
+          <column index="10" sort="None" forcevisible="true" hidden="false" width="75" />
+          <column index="11" sort="None" forcevisible="false" hidden="true" width="75" />
+          <column index="12" sort="None" forcevisible="false" hidden="true" width="100" />
+          <column index="13" sort="None" forcevisible="false" hidden="false" width="105" />
+          <column index="14" sort="None" forcevisible="false" hidden="true" width="50" />
+          <column index="15" sort="None" forcevisible="false" hidden="true" width="50" />
+          <column index="16" sort="None" forcevisible="false" hidden="true" width="50" />
+          <column index="17" sort="None" forcevisible="false" hidden="true" width="150" />
+          <column index="18" sort="None" forcevisible="false" hidden="true" width="150" />
+          <column index="19" sort="None" forcevisible="false" hidden="true" width="150" />
+        </table>
+        <heatfieldconfig smartmeasure="true" filterconfirmed="false" smartserver="true" customevents="true">
+          <incidentrules />
+        </heatfieldconfig>
+      </datamodelconfig>
+      <chartcolors />
+    </portletconfig>
+    <portletconfig icon="com.dynatrace.diagnostics.sdk/chart_cust.png" usespecificautorefresh="false" usedashboardsourceforcompare="true" folderid="org.eclipse.ui.internal.ViewStack@c8e79c" sessiontype="live" locationassource="true" usedashboardsource="true" sessionid="WebSphere MessageBroker" bgcolor="236,233,216,255" id="9aa0e2b3-246b-4559-a313-944392957e2d" addfilterinfo="false" description="" lastvalue="false" name="SOAP Service Availability, Status and Content" typeid="com.dynatrace.diagnostics.portlets.chart.Chart" ismaster="false" showabsolutevalues="false" locationascomparesource="false">
+      <reportconfig lines.per.table="100" print.legends="true" enabled="true" levels.per.tree="10" override="false" print.images="true" reportposition="1" />
+      <filter>
+        <criterion completepurepath="true" type="agents" mode="all">
+          <textpattern enabled="true" name="agentname" type="contains" />
+          <textpattern enabled="true" name="agenthost" type="contains" />
+        </criterion>
+        <criterion type="applications" mode="all" />
+        <criterion completepurepath="true" type="hosts" mode="all" />
+        <criterion type="timeframe">
+          <timeframe start="0" type="Auto" end="9223372036854775807" />
+        </criterion>
+        <criterion type="visits">
+          <visitidset visitsidsetsize="0" />
+        </criterion>
+        <inheritancemap />
+      </filter>
+      <autorefreshconfig unit="MINUTES" enabled="true" time="30" />
+      <sashconfig weights="500,500" displayoption="CHART" />
+      <datamodelconfig>
+        <chart maxdisplayitems="10" axis.x.title="" legendposition="Bottom" zoomable="true" showtooltips="true" charttype="TrafficLightChart" resolution="Auto" isentitymarkable="false" title="" showlabels="true" yaxisalignment="0" showname="true" splitcharts="false" bounds.y.enabled="false" axis.y.show="true" subchartweights="200" orientation="Horizontal" axis.y.title="" axis.y.title.show="false" limititems="false" axis.x.show="true" axis.x.title.show="false" logxaxis="false" showheatfield="true" showvalues="false" showtitle="false" showlegend="false">
+          <legendcomposition splittings="true" measure="true">
+            <pielabelcomposition unit="true" value="true" />
+          </legendcomposition>
+          <chartsource position="-1" scale="0" visible="true" sessiontype="live" parentid="8e9c9681-1807-4bb4-9256-4b123a9ebebd" aggregationtype="Avg" uiunit="number" groupingvalue="" id="48f286f9-714a-3784-b17b-63da3c8f377d" fetchmeasurecolor="false" overridesource="true" rate="10s" ratesupported="false" name="ContentVerified" sourcecolor="RGB(89,32,13,255)" sourcetype="MEASURE" dynamicconfig="true" autounit="false" sessionid="WebSphere MessageBroker" groupingcriterion="AgentOrMonitor" displayrate="10s" unit="number" systemid="WebSphere MessageBroker" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="true" autoscale="false">
+            <tagtolabel />
+            <lightweightuniquemeasureidentifier keyid="ContentVerified" metricgroupkey="SOAP Monitor" collector="" systemid="WebSphere MessageBroker" application="" agenthost="cmiller" parentkeyid="ContentVerified" metrickeyid="ContentVerified" agentname="WMB FindAddress SOAP Monitor" />
+            <displaysourceinfo agenthost="cmiller" monitorhost="cmiller" monitordetails="WMB FindAddress SOAP Monitor" agentname="WMB FindAddress SOAP Monitor" measureunit="number" monitorscheduleid="WMB FindAddress SOAP Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="1" scale="0" visible="false" sessiontype="live" colorinheritancemode="random" aggregationtype="Avg" uiunit="number" groupingvalue="" id="b8509482-a3ce-4732-9bf3-b726e03bb21a" fetchmeasurecolor="true" overridesource="false" rate="10s" ratesupported="false" name="ContentVerified" sourcecolor="RGB(64,64,64,255)" sourcetype="MEASURE" dynamicconfig="false" autounit="false" sessionid="WebSphere MessageBroker" groupingcriterion="AgentOrMonitor" displayrate="10s" systemid="WebSphere MessageBroker" unit="number" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="true" autoscale="false">
+            <tagtolabel />
+            <lightweightuniquemeasureidentifier keyid="ContentVerified" metricgroupkey="SOAP Monitor" collector="" systemid="WebSphere MessageBroker" application="" agenthost="" parentkeyid="ContentVerified" metrickeyid="ContentVerified" agentname="WMB SaveAddress SOAP Monitor" />
+            <displaysourceinfo monitorhost="&lt;all-hosts&gt;" monitordetails="WMB SaveAddress SOAP Monitor" measureunit="number" monitorscheduleid="WMB SaveAddress SOAP Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="-1" scale="0" visible="true" sessiontype="live" parentid="54ee5bd9-88b8-464a-8dba-8582fc1928d6" aggregationtype="Avg" uiunit="number" groupingvalue="" id="0d23c694-d2b2-3533-926f-69f147624bcf" fetchmeasurecolor="false" overridesource="true" rate="10s" ratesupported="false" name="HttpStatusCode" sourcecolor="RGB(177,27,90,255)" sourcetype="MEASURE" dynamicconfig="true" autounit="false" sessionid="WebSphere MessageBroker" groupingcriterion="AgentOrMonitor" displayrate="10s" unit="number" systemid="WebSphere MessageBroker" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="true" autoscale="false">
+            <tagtolabel />
+            <lightweightuniquemeasureidentifier keyid="HttpStatusCode" metricgroupkey="SOAP Monitor" collector="" systemid="WebSphere MessageBroker" application="" agenthost="cmiller" parentkeyid="HttpStatusCode" metrickeyid="HttpStatusCode" agentname="WMB FindAddress SOAP Monitor" />
+            <displaysourceinfo agenthost="cmiller" monitorhost="cmiller" monitordetails="WMB FindAddress SOAP Monitor" agentname="WMB FindAddress SOAP Monitor" measureunit="number" monitorscheduleid="WMB FindAddress SOAP Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="4" scale="0" visible="false" sessiontype="live" colorinheritancemode="random" aggregationtype="Avg" uiunit="number" groupingvalue="" id="8e9c9681-1807-4bb4-9256-4b123a9ebebd" fetchmeasurecolor="true" overridesource="false" rate="10s" ratesupported="false" name="ContentVerified" sourcecolor="RGB(128,192,0,255)" sourcetype="MEASURE" dynamicconfig="false" autounit="false" sessionid="WebSphere MessageBroker" groupingcriterion="AgentOrMonitor" displayrate="10s" systemid="WebSphere MessageBroker" unit="number" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="true" autoscale="false">
+            <tagtolabel />
+            <lightweightuniquemeasureidentifier keyid="ContentVerified" metricgroupkey="SOAP Monitor" collector="" systemid="WebSphere MessageBroker" application="" agenthost="" parentkeyid="ContentVerified" metrickeyid="ContentVerified" agentname="WMB FindAddress SOAP Monitor" />
+            <displaysourceinfo monitorhost="&lt;all-hosts&gt;" monitordetails="WMB FindAddress SOAP Monitor" measureunit="number" monitorscheduleid="WMB FindAddress SOAP Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="-1" scale="0" visible="true" sessiontype="live" parentid="a8683e8e-d4e4-473a-bb38-d6c14875c7d6" aggregationtype="Avg" uiunit="number" groupingvalue="" id="02a00629-f39e-370d-a7e9-13fa8e1234a3" fetchmeasurecolor="false" overridesource="true" rate="10s" ratesupported="false" name="HostReachable" sourcecolor="RGB(89,67,13,255)" sourcetype="MEASURE" dynamicconfig="true" autounit="false" sessionid="WebSphere MessageBroker" groupingcriterion="AgentOrMonitor" displayrate="10s" unit="number" systemid="WebSphere MessageBroker" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="true" autoscale="false">
+            <tagtolabel />
+            <lightweightuniquemeasureidentifier keyid="HostReachable" metricgroupkey="SOAP Monitor" collector="" systemid="WebSphere MessageBroker" application="" agenthost="cmiller" parentkeyid="HostReachable" metrickeyid="HostReachable" agentname="WMB SaveAddress SOAP Monitor" />
+            <displaysourceinfo agenthost="cmiller" monitorhost="cmiller" monitordetails="WMB SaveAddress SOAP Monitor" agentname="WMB SaveAddress SOAP Monitor" measureunit="number" monitorscheduleid="WMB SaveAddress SOAP Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="3" scale="0" visible="false" sessiontype="live" colorinheritancemode="random" aggregationtype="Avg" uiunit="number" groupingvalue="" id="a8683e8e-d4e4-473a-bb38-d6c14875c7d6" fetchmeasurecolor="true" overridesource="false" rate="10s" ratesupported="false" name="HostReachable" sourcecolor="RGB(192,64,0,255)" sourcetype="MEASURE" dynamicconfig="false" autounit="false" sessionid="WebSphere MessageBroker" groupingcriterion="AgentOrMonitor" displayrate="10s" systemid="WebSphere MessageBroker" unit="number" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="true" autoscale="false">
+            <tagtolabel />
+            <lightweightuniquemeasureidentifier keyid="HostReachable" metricgroupkey="SOAP Monitor" collector="" systemid="WebSphere MessageBroker" application="" agenthost="" parentkeyid="HostReachable" metrickeyid="HostReachable" agentname="WMB SaveAddress SOAP Monitor" />
+            <displaysourceinfo monitorhost="&lt;all-hosts&gt;" monitordetails="WMB SaveAddress SOAP Monitor" measureunit="number" monitorscheduleid="WMB SaveAddress SOAP Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="-1" scale="0" visible="true" sessiontype="live" parentid="d337791f-45c5-47cc-a062-9809abbfe687" aggregationtype="Avg" uiunit="number" groupingvalue="" id="14f57dfe-819b-3770-8298-8717fb31a66d" fetchmeasurecolor="false" overridesource="true" rate="10s" ratesupported="false" name="HostReachable" sourcecolor="RGB(229,207,77,255)" sourcetype="MEASURE" dynamicconfig="true" autounit="false" sessionid="WebSphere MessageBroker" groupingcriterion="AgentOrMonitor" displayrate="10s" unit="number" systemid="WebSphere MessageBroker" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="true" autoscale="false">
+            <tagtolabel />
+            <lightweightuniquemeasureidentifier keyid="HostReachable" metricgroupkey="SOAP Monitor" collector="" systemid="WebSphere MessageBroker" application="" agenthost="cmiller" parentkeyid="HostReachable" metrickeyid="HostReachable" agentname="WMB FindAddress SOAP Monitor" />
+            <displaysourceinfo agenthost="cmiller" monitorhost="cmiller" monitordetails="WMB FindAddress SOAP Monitor" agentname="WMB FindAddress SOAP Monitor" measureunit="number" monitorscheduleid="WMB FindAddress SOAP Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="6" scale="0" visible="false" sessiontype="live" colorinheritancemode="random" aggregationtype="Avg" uiunit="number" groupingvalue="" id="d337791f-45c5-47cc-a062-9809abbfe687" fetchmeasurecolor="true" overridesource="false" rate="10s" ratesupported="false" name="HostReachable" sourcecolor="RGB(0,64,128,255)" sourcetype="MEASURE" dynamicconfig="false" autounit="false" sessionid="WebSphere MessageBroker" groupingcriterion="AgentOrMonitor" displayrate="10s" systemid="WebSphere MessageBroker" unit="number" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="true" autoscale="false">
+            <tagtolabel />
+            <lightweightuniquemeasureidentifier keyid="HostReachable" metricgroupkey="SOAP Monitor" collector="" systemid="WebSphere MessageBroker" application="" agenthost="" parentkeyid="HostReachable" metrickeyid="HostReachable" agentname="WMB FindAddress SOAP Monitor" />
+            <displaysourceinfo monitorhost="&lt;all-hosts&gt;" monitordetails="WMB FindAddress SOAP Monitor" measureunit="number" monitorscheduleid="WMB FindAddress SOAP Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="-1" scale="0" visible="true" sessiontype="live" parentid="34798448-e695-4192-8961-911ab9914390" aggregationtype="Avg" uiunit="number" groupingvalue="" id="edb7f6ad-3820-3183-a8e4-44922e91582c" fetchmeasurecolor="false" overridesource="true" rate="10s" ratesupported="false" name="HttpStatusCode" sourcecolor="RGB(77,158,229,255)" sourcetype="MEASURE" dynamicconfig="true" autounit="false" sessionid="WebSphere MessageBroker" groupingcriterion="AgentOrMonitor" displayrate="10s" unit="number" systemid="WebSphere MessageBroker" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="true" autoscale="false">
+            <tagtolabel />
+            <lightweightuniquemeasureidentifier keyid="HttpStatusCode" metricgroupkey="SOAP Monitor" collector="" systemid="WebSphere MessageBroker" application="" agenthost="cmiller" parentkeyid="HttpStatusCode" metrickeyid="HttpStatusCode" agentname="WMB SaveAddress SOAP Monitor" />
+            <displaysourceinfo agenthost="cmiller" monitorhost="cmiller" monitordetails="WMB SaveAddress SOAP Monitor" agentname="WMB SaveAddress SOAP Monitor" measureunit="number" monitorscheduleid="WMB SaveAddress SOAP Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="2" scale="0" visible="false" sessiontype="live" colorinheritancemode="random" aggregationtype="Avg" uiunit="number" groupingvalue="" id="34798448-e695-4192-8961-911ab9914390" fetchmeasurecolor="true" overridesource="false" rate="10s" ratesupported="false" name="HttpStatusCode" sourcecolor="RGB(192,128,128,255)" sourcetype="MEASURE" dynamicconfig="false" autounit="false" sessionid="WebSphere MessageBroker" groupingcriterion="AgentOrMonitor" displayrate="10s" systemid="WebSphere MessageBroker" unit="number" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="true" autoscale="false">
+            <tagtolabel />
+            <lightweightuniquemeasureidentifier keyid="HttpStatusCode" metricgroupkey="SOAP Monitor" collector="" systemid="WebSphere MessageBroker" application="" agenthost="" parentkeyid="HttpStatusCode" metrickeyid="HttpStatusCode" agentname="WMB SaveAddress SOAP Monitor" />
+            <displaysourceinfo monitorhost="&lt;all-hosts&gt;" monitordetails="WMB SaveAddress SOAP Monitor" measureunit="number" monitorscheduleid="WMB SaveAddress SOAP Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="-1" scale="0" visible="true" sessiontype="live" parentid="b8509482-a3ce-4732-9bf3-b726e03bb21a" aggregationtype="Avg" uiunit="number" groupingvalue="" id="e441d0a6-006e-3daa-a976-92205bda8457" fetchmeasurecolor="false" overridesource="true" rate="10s" ratesupported="false" name="ContentVerified" sourcecolor="RGB(178,156,26,255)" sourcetype="MEASURE" dynamicconfig="true" autounit="false" sessionid="WebSphere MessageBroker" groupingcriterion="AgentOrMonitor" displayrate="10s" unit="number" systemid="WebSphere MessageBroker" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="true" autoscale="false">
+            <tagtolabel />
+            <lightweightuniquemeasureidentifier keyid="ContentVerified" metricgroupkey="SOAP Monitor" collector="" systemid="WebSphere MessageBroker" application="" agenthost="cmiller" parentkeyid="ContentVerified" metrickeyid="ContentVerified" agentname="WMB SaveAddress SOAP Monitor" />
+            <displaysourceinfo agenthost="cmiller" monitorhost="cmiller" monitordetails="WMB SaveAddress SOAP Monitor" agentname="WMB SaveAddress SOAP Monitor" measureunit="number" monitorscheduleid="WMB SaveAddress SOAP Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="5" scale="0" visible="false" sessiontype="live" colorinheritancemode="random" aggregationtype="Avg" uiunit="number" groupingvalue="" id="54ee5bd9-88b8-464a-8dba-8582fc1928d6" fetchmeasurecolor="true" overridesource="false" rate="10s" ratesupported="false" name="HttpStatusCode" sourcecolor="RGB(192,64,64,255)" sourcetype="MEASURE" dynamicconfig="false" autounit="false" sessionid="WebSphere MessageBroker" groupingcriterion="AgentOrMonitor" displayrate="10s" systemid="WebSphere MessageBroker" unit="number" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="true" autoscale="false">
+            <tagtolabel />
+            <lightweightuniquemeasureidentifier keyid="HttpStatusCode" metricgroupkey="SOAP Monitor" collector="" systemid="WebSphere MessageBroker" application="" agenthost="" parentkeyid="HttpStatusCode" metrickeyid="HttpStatusCode" agentname="WMB FindAddress SOAP Monitor" />
+            <displaysourceinfo monitorhost="&lt;all-hosts&gt;" monitordetails="WMB FindAddress SOAP Monitor" measureunit="number" monitorscheduleid="WMB FindAddress SOAP Monitor" measurerate="purepath" />
+          </chartsource>
+          <splitconfig splitmode="PerSeries" splitlayout="Horizontal" />
+        </chart>
+        <table drawcolumn="-1" name="The Measure table" sortcolumn="0" structuremode="measureHierarchy" columnorder="0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19">
+          <column index="0" sort="Up" forcevisible="false" hidden="false" width="400" />
+          <column index="1" sort="None" forcevisible="false" hidden="true" width="100" />
+          <column index="2" sort="None" forcevisible="false" hidden="true" width="100" />
+          <column index="3" sort="None" forcevisible="false" hidden="false" width="25" />
+          <column index="4" sort="None" forcevisible="false" hidden="false" width="100" />
+          <column index="5" sort="None" forcevisible="true" hidden="false" width="100" />
+          <column index="6" sort="None" forcevisible="false" hidden="false" width="50" />
+          <column index="7" sort="None" forcevisible="false" hidden="true" width="75" />
+          <column index="8" sort="None" forcevisible="false" hidden="true" width="75" />
+          <column index="9" sort="None" forcevisible="false" hidden="true" width="75" />
+          <column index="10" sort="None" forcevisible="true" hidden="false" width="75" />
+          <column index="11" sort="None" forcevisible="false" hidden="true" width="75" />
+          <column index="12" sort="None" forcevisible="false" hidden="true" width="100" />
+          <column index="13" sort="None" forcevisible="false" hidden="false" width="105" />
+          <column index="14" sort="None" forcevisible="false" hidden="true" width="50" />
+          <column index="15" sort="None" forcevisible="false" hidden="true" width="50" />
+          <column index="16" sort="None" forcevisible="false" hidden="true" width="50" />
+          <column index="17" sort="None" forcevisible="false" hidden="true" width="150" />
+          <column index="18" sort="None" forcevisible="false" hidden="true" width="150" />
+          <column index="19" sort="None" forcevisible="false" hidden="true" width="150" />
+        </table>
+        <heatfieldconfig smartmeasure="true" filterconfirmed="false" smartserver="true" customevents="true">
+          <incidentrules />
+        </heatfieldconfig>
+      </datamodelconfig>
+      <chartcolors />
+    </portletconfig>
+    <portletconfig icon="com.dynatrace.diagnostics.sdk/chart_cust.png" usespecificautorefresh="false" usedashboardsourceforcompare="true" folderid="org.eclipse.ui.internal.ViewStack@972900" sessiontype="live" locationassource="true" usedashboardsource="true" sessionid="WebSphere MessageBroker" bgcolor="236,233,216,255" id="c7a2bfeb-b126-4377-8380-a8e8d491ede0" addfilterinfo="false" description="" lastvalue="false" name="SOAP Service Response Size" typeid="com.dynatrace.diagnostics.portlets.chart.Chart" ismaster="false" showabsolutevalues="false" locationascomparesource="false">
+      <reportconfig lines.per.table="100" print.legends="true" enabled="true" levels.per.tree="10" override="false" print.images="true" reportposition="1" />
+      <filter>
+        <criterion completepurepath="true" type="agents" mode="all">
+          <textpattern enabled="true" name="agentname" type="contains" />
+          <textpattern enabled="true" name="agenthost" type="contains" />
+        </criterion>
+        <criterion type="applications" mode="all" />
+        <criterion completepurepath="true" type="hosts" mode="all" />
+        <criterion type="timeframe">
+          <timeframe start="0" type="Auto" end="9223372036854775807" />
+        </criterion>
+        <criterion type="visits">
+          <visitidset visitsidsetsize="0" />
+        </criterion>
+        <inheritancemap />
+      </filter>
+      <autorefreshconfig unit="MINUTES" enabled="true" time="30" />
+      <sashconfig weights="500,500" displayoption="CHART" />
+      <datamodelconfig>
+        <chart maxdisplayitems="10" axis.x.title="" legendposition="Bottom" zoomable="true" showtooltips="true" bounds.y.lower="0.0" charttype="StackedAreaChart" resolution="Auto" isentitymarkable="false" title="" showlabels="true" yaxisalignment="0" showname="true" splitcharts="true" bounds.y.enabled="true" axis.y.show="true" bounds.y.upper="5000.0" subchartweights="1000" orientation="Horizontal" axis.y.title="" axis.y.title.show="true" limititems="false" axis.x.show="true" axis.x.title.show="true" logxaxis="false" showheatfield="true" showvalues="false" showtitle="false" showlegend="false">
+          <legendcomposition splittings="true" measure="true">
+            <pielabelcomposition unit="true" value="true" />
+          </legendcomposition>
+          <chartsource position="1" scale="0" visible="false" sessiontype="live" colorinheritancemode="random" aggregationtype="Avg" uiunit="bytes" groupingvalue="" id="ce13aebb-f354-4224-aac4-d00d64acc5be" fetchmeasurecolor="false" overridesource="true" rate="10s" ratesupported="false" name="ResponseSize" sourcecolor="RGB(88,20,133,255)" sourcetype="MEASURE" dynamicconfig="false" autounit="false" sessionid="WebSphere MessageBroker" groupingcriterion="AgentOrMonitor" displayrate="10s" systemid="WebSphere MessageBroker" unit="bytes" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="true" autoscale="false">
+            <tagtolabel />
+            <lightweightuniquemeasureidentifier keyid="ResponseSize" metricgroupkey="SOAP Monitor" collector="" systemid="WebSphere MessageBroker" application="" agenthost="" parentkeyid="ResponseSize" metrickeyid="ResponseSize" agentname="WMB FindAddress SOAP Monitor" />
+            <displaysourceinfo monitorhost="&lt;all-hosts&gt;" monitordetails="WMB FindAddress SOAP Monitor" measureunit="bytes" monitorscheduleid="WMB FindAddress SOAP Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="-1" scale="0" visible="true" sessiontype="live" parentid="ce13aebb-f354-4224-aac4-d00d64acc5be" aggregationtype="Avg" uiunit="bytes" groupingvalue="" id="035595c8-4f5b-34ea-bbf3-3f971e6af1c5" fetchmeasurecolor="false" overridesource="true" rate="10s" ratesupported="false" name="ResponseSize" sourcecolor="RGB(122,204,235,255)" sourcetype="MEASURE" dynamicconfig="true" autounit="false" sessionid="WebSphere MessageBroker" groupingcriterion="AgentOrMonitor" displayrate="10s" unit="bytes" systemid="WebSphere MessageBroker" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="false" autoscale="false">
+            <tagtolabel />
+            <lightweightuniquemeasureidentifier keyid="ResponseSize" metricgroupkey="SOAP Monitor" collector="" systemid="WebSphere MessageBroker" application="" agenthost="cmiller" parentkeyid="ResponseSize" metrickeyid="ResponseSize" agentname="WMB FindAddress SOAP Monitor" />
+            <displaysourceinfo agenthost="cmiller" monitorhost="cmiller" monitordetails="WMB FindAddress SOAP Monitor" agentname="WMB SOAP Monitor" measureunit="bytes" monitorscheduleid="WMB FindAddress SOAP Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="-1" scale="0" visible="true" sessiontype="live" parentid="2cd09e0f-547c-4c5e-a41e-395483608f66" aggregationtype="Avg" uiunit="bytes" groupingvalue="" id="d7e19ec3-4159-3599-922b-a27260050851" fetchmeasurecolor="false" overridesource="true" rate="10s" ratesupported="false" name="ResponseSize" sourcecolor="RGB(242,166,198,255)" sourcetype="MEASURE" dynamicconfig="true" autounit="false" sessionid="WebSphere MessageBroker" groupingcriterion="AgentOrMonitor" displayrate="10s" unit="bytes" systemid="WebSphere MessageBroker" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="true" autoscale="false">
+            <tagtolabel />
+            <lightweightuniquemeasureidentifier keyid="ResponseSize" metricgroupkey="SOAP Monitor" collector="" systemid="WebSphere MessageBroker" application="" agenthost="cmiller" parentkeyid="ResponseSize" metrickeyid="ResponseSize" agentname="WMB SaveAddress SOAP Monitor" />
+            <displaysourceinfo agenthost="cmiller" monitorhost="cmiller" monitordetails="WMB SaveAddress SOAP Monitor" agentname="WMB SaveAddress SOAP Monitor" measureunit="bytes" monitorscheduleid="WMB SaveAddress SOAP Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="2" scale="0" visible="false" sessiontype="live" colorinheritancemode="random" aggregationtype="Avg" uiunit="bytes" groupingvalue="" id="2cd09e0f-547c-4c5e-a41e-395483608f66" fetchmeasurecolor="true" overridesource="false" rate="10s" ratesupported="false" name="ResponseSize" sourcecolor="RGB(192,192,192,255)" sourcetype="MEASURE" dynamicconfig="false" autounit="false" sessionid="WebSphere MessageBroker" groupingcriterion="AgentOrMonitor" displayrate="10s" systemid="WebSphere MessageBroker" unit="bytes" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="true" autoscale="false">
+            <tagtolabel />
+            <lightweightuniquemeasureidentifier keyid="ResponseSize" metricgroupkey="SOAP Monitor" collector="" systemid="WebSphere MessageBroker" application="" agenthost="" parentkeyid="ResponseSize" metrickeyid="ResponseSize" agentname="WMB SaveAddress SOAP Monitor" />
+            <displaysourceinfo monitorhost="&lt;all-hosts&gt;" monitordetails="WMB SaveAddress SOAP Monitor" measureunit="bytes" monitorscheduleid="WMB SaveAddress SOAP Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="-1" scale="0" visible="true" sessiontype="live" parentid="ce13aebb-f354-4224-aac4-d00d64acc5be" aggregationtype="Avg" uiunit="bytes" groupingvalue="" id="2c0a34ac-567c-3aef-8bf9-d8930a53ef0d" fetchmeasurecolor="false" overridesource="true" rate="10s" ratesupported="false" name="ResponseSize" sourcecolor="RGB(229,229,77,255)" sourcetype="MEASURE" dynamicconfig="true" autounit="false" sessionid="WebSphere MessageBroker" groupingcriterion="AgentOrMonitor" displayrate="10s" unit="bytes" systemid="WebSphere MessageBroker" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="true" autoscale="false">
+            <tagtolabel />
+            <lightweightuniquemeasureidentifier keyid="ResponseSize" metricgroupkey="SOAP Monitor" collector="" systemid="WebSphere MessageBroker" application="" agenthost="cmiller" parentkeyid="ResponseSize" metrickeyid="ResponseSize" agentname="WMB FindAddress SOAP Monitor" />
+            <displaysourceinfo agenthost="cmiller" monitorhost="cmiller" monitordetails="WMB FindAddress SOAP Monitor" agentname="WMB FindAddress SOAP Monitor" measureunit="bytes" monitorscheduleid="WMB FindAddress SOAP Monitor" measurerate="purepath" />
+          </chartsource>
+          <splitconfig splitmode="Measure" splitlayout="Horizontal" />
+        </chart>
+        <table drawcolumn="-1" name="The Measure table" sortcolumn="0" structuremode="measureHierarchy" columnorder="0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19">
+          <column index="0" sort="Up" forcevisible="false" hidden="false" width="400" />
+          <column index="1" sort="None" forcevisible="false" hidden="true" width="100" />
+          <column index="2" sort="None" forcevisible="false" hidden="true" width="100" />
+          <column index="3" sort="None" forcevisible="false" hidden="false" width="25" />
+          <column index="4" sort="None" forcevisible="false" hidden="false" width="100" />
+          <column index="5" sort="None" forcevisible="true" hidden="false" width="100" />
+          <column index="6" sort="None" forcevisible="false" hidden="false" width="50" />
+          <column index="7" sort="None" forcevisible="false" hidden="true" width="75" />
+          <column index="8" sort="None" forcevisible="false" hidden="true" width="75" />
+          <column index="9" sort="None" forcevisible="false" hidden="true" width="75" />
+          <column index="10" sort="None" forcevisible="true" hidden="false" width="75" />
+          <column index="11" sort="None" forcevisible="false" hidden="true" width="75" />
+          <column index="12" sort="None" forcevisible="false" hidden="true" width="100" />
+          <column index="13" sort="None" forcevisible="false" hidden="false" width="105" />
+          <column index="14" sort="None" forcevisible="false" hidden="true" width="50" />
+          <column index="15" sort="None" forcevisible="false" hidden="true" width="50" />
+          <column index="16" sort="None" forcevisible="false" hidden="true" width="50" />
+          <column index="17" sort="None" forcevisible="false" hidden="true" width="150" />
+          <column index="18" sort="None" forcevisible="false" hidden="true" width="150" />
+          <column index="19" sort="None" forcevisible="false" hidden="true" width="150" />
+        </table>
+        <heatfieldconfig smartmeasure="true" filterconfirmed="false" smartserver="true" customevents="true">
+          <incidentrules />
+        </heatfieldconfig>
+      </datamodelconfig>
+      <chartcolors />
+    </portletconfig>
+  </dashboardconfig>
+</dynatrace>
+
