@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+  <extension point="com.dynatrace.diagnostics.pdk.pluginconfig" id="com.dynatrace.diagnostics.plugin.SOAPMonitor" name="SOAP Monitor">
+    <information>
+      <description value="The SOAP Monitor verifies availability, content, and access time for specified SOAP requests to ensure the availability of SOAP Services. It supports secure communication and HTTP proxies." />
+      <license value="dynaTraceBSD.txt" />
+      <supportlevel value="unsupported" />
+      <category value="Remote" />
+    </information>
+    <configuration>
+      <property key="url" label="URL" type="url" description="This property is deprecated and thus hidden. Old description: The full URL to connect to in the format protocol://host:port/path Protocol has to be http or https, the port can be omitted for the respective default port." default="http://localhost/">
+        <visibility>
+          <rule key="alwaysHidden" value="true" />
+        </visibility>
+      </property>
+      <property key="protocol" label="Protocol" type="list" description="Select the protocol that will be used to establish the connection. If 'https' is selected, a secure connection will be made using SSL." default="http">
+        <list>
+          <item value="http" />
+          <item value="https" />
+        </list>
+      </property>
+      <property key="httpPort" label="Port" type="long" description="Enter the port number of the webserver. The default HTTP port is 80." default="80">
+        <visibility>
+          <rule key="protocol" value="http" />
+        </visibility>
+      </property>
+      <property key="httpsPort" label="Port" type="long" description="Enter the port number of the webserver. The default port for HTTP over SSL is 443." default="443">
+        <visibility>
+          <rule key="protocol" value="https" />
+        </visibility>
+      </property>
+      <property key="path" label="Path" type="string" description="Enter the path to the webpage to be monitored. Example: /index.html" default="/" multiline="false" />
+      <property key="contentType" label="Content Type" type="string" description="Content Type of SOAP call&#xA;SOAP 1.1=&quot;text/xml&quot;&#xA;SOAP 1.2=&quot;application/soap+xml&quot;" default="text/xml" multiline="false" />
+      <property key="characterSet" label="Character Set" type="string" description="UTF character setting" default="utf-8" multiline="false" />
+      <property key="postData" label="SOAP Envelope POST Data" type="string" description="The SOAP Envelope data which will be sent with the POST request." default="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&lt;soap:Envelope xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:soap=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;&lt;soap:Body&gt;&lt;Add xmlns=&quot;http://tempuri.org/&quot;&gt;&lt;intA&gt;int&lt;/intA&gt;&lt;intB&gt;int&lt;/intB&gt;&lt;/Add&gt;&lt;/soap:Body&gt;&lt;/soap:Envelope&gt;" multiline="true" />
+      <property key="httpVersion" label="HTTP version" type="list" description="The version of the HTTP protocol. HTTP/1.1 is the recommended." default="1.1">
+        <list>
+          <item value="1.1" />
+          <item value="1.0" />
+        </list>
+      </property>
+      <property key="userAgent" label="User-Agent" type="string" description="The user agent string identifies the HTTP client and is sent with every request." default="dynaTrace/4" multiline="false" />
+      <property key="maxRedirects" label="Max. redirects" type="long" description="If a value of 1 or greater is specified, the SOAP Monitor will follow HTTP redirect codes (301-303, 307) to retrieve the webpage." default="0" />
+      <property key="matchContent" label="Match content" type="list" description="If enabled, the specified string will be searched in the retrieved page." default="Disabled">
+        <list>
+          <item value="Disabled" />
+          <item value="Success if match" />
+          <item value="Error if match" />
+          <item value="Expected size in bytes" />
+        </list>
+      </property>
+      <property key="searchString" label="Search string" type="string" description="Enter a case-sensitive string to search for in the retrieved webpage. If 'Success if match' is configured and the webpage contains the string, the measure will yield 1, otherwise 0." default="" multiline="false">
+        <visibility>
+          <rule key="matchContent" value="Success if match" />
+          <rule key="matchContent" value="Error if match" />
+        </visibility>
+      </property>
+      <property key="compareBytes" label="Bytes" type="long" description="Enter the number of bytes expected for the response." default="0">
+        <visibility>
+          <rule key="matchContent" value="Expected size in bytes" />
+        </visibility>
+      </property>
+      <property key="serverAuth" label="Server authorization" type="boolean" description="If the SOAP specified requires a name and password for access, server authorization needs to be enabled." default="false" />
+      <property key="serverUsername" label="Server username" type="string" description="The username that is used for authorization with the server." default="" multiline="false">
+        <visibility>
+          <rule key="serverAuth" value="true" />
+        </visibility>
+      </property>
+      <property key="serverPassword" label="Server password" type="password" description="The password for the username." default="">
+        <visibility>
+          <rule key="serverAuth" value="true" />
+        </visibility>
+      </property>
+      <property key="useProxy" label="Proxy" type="boolean" description="If enabled, the configured HTTP proxy server will be used to access the SOAP." default="false" />
+      <property key="proxyHost" label="Proxy host" type="string" description="The hostname of the HTTP proxy server." default="" multiline="false">
+        <visibility>
+          <rule key="useProxy" value="true" />
+        </visibility>
+      </property>
+      <property key="proxyPort" label="Proxy port" type="long" description="The port of the HTTP proxy server." default="8080">
+        <visibility>
+          <rule key="useProxy" value="true" />
+        </visibility>
+      </property>
+      <property key="proxyAuth" label="Proxy authorization" type="boolean" description="If the HTTP proxy server requires a username and a password for access, proxy authorization needs to be enabled." default="false">
+        <visibility>
+          <rule key="useProxy" value="true" />
+        </visibility>
+      </property>
+      <property key="proxyUsername" label="Proxy username" type="string" description="The username that is used for authorization with the HTTP proxy server." default="" multiline="false">
+        <visibility>
+          <rule key="proxyAuth" value="true" />
+        </visibility>
+      </property>
+      <property key="proxyPassword" label="Proxy password" type="password" description="The password for the proxy username." default="">
+        <visibility>
+          <rule key="proxyAuth" value="true" />
+        </visibility>
+      </property>
+      <property key="structuredUrl" label="Structured URL" type="boolean" description="This property is deprecated and thus hidden. Old description: Decide between string based URL configuration to paste an URL from the address bar of a browser, and structurized URL configuration to specify host, path etc. separately." default="false">
+        <visibility>
+          <rule key="alwaysHidden" value="true" />
+        </visibility>
+      </property>
+      <property key="dtTagging" label="dynaTrace Tagging" type="boolean" description="Enable dynaTrace tagging." default="true" />
+      <property key="dtTimerName" label="timer name" type="string" description="Identify this webrequest through a unique timer name. The timer name will be sent with each web request as a dynaTrace header field value." default="" multiline="false">
+        <visibility>
+          <rule key="dtTagging" value="true" />
+        </visibility>
+      </property>
+      <property key="ignoreCertificate" label="Disable certificate validation" type="boolean" description="Enable to allow connections via SSL even if the certificate on the target host is invalid or self-signed." default="false" />
+    </configuration>
+  </extension>
+  <extension point="com.dynatrace.diagnostics.pdk.monitor" id="com.dynatrace.diagnostics.plugin.SOAPMonitor.monitor" name="SOAP Monitor">
+    <plugin class="SOAP.SOAPMonitor" configid="com.dynatrace.diagnostics.plugin.SOAPMonitor" />
+  </extension>
+  <extension point="com.dynatrace.diagnostics.pdk.monitormetricgroup" id="com.dynatrace.diagnostics.plugin.SOAPMonitor.metricgroup1" name="SOAP Monitor">
+    <metricgroup monitorid="com.dynatrace.diagnostics.plugin.SOAPMonitor.monitor">
+      <metric name="HostReachable" description="If the host is reachable, the measure will yield 1, otherwise 0." unit="number" defaultrate="none" hidedisplayaggregation="sum count" />
+      <metric name="HeaderSize" description="The size of the response header in bytes." unit="bytes" defaultrate="none" />
+      <metric name="FirstResponseDelay" description="The elapsed time in milliseconds from requesting the SOAP content until the first byte of the content has arrived." unit="ms" defaultrate="none" hidedisplayaggregation="sum count" />
+      <metric name="ResponseCompleteTime" description="The elapsed time in milliseconds from requesting the SOAP content until the whole content has arrived." unit="ms" defaultrate="none" hidedisplayaggregation="sum count" />
+      <metric name="ResponseSize" description="The size of the SOAP content in bytes." unit="bytes" defaultrate="none" />
+      <metric name="Throughput" description="The average achieved throughput (kilobytes/sec) during SOAP content retrieval." unit="kilobytes" defaultrate="sec" hidedisplayaggregation="sum count" />
+      <metric name="HttpStatusCode" description="The HTTP status code from the server response." unit="number" defaultrate="none" hidedisplayaggregation="sum count" />
+      <metric name="ConnectionCloseDelay" description="The elapsed time in milliseconds until the connection to the server has been closed." unit="ms" defaultrate="none" hidedisplayaggregation="sum count" />
+      <metric name="ContentVerified" description="If the content could be verified, the measure will yield 1, otherwise 0." unit="number" defaultrate="none" hidedisplayaggregation="sum count" />
+    </metricgroup>
+    <information>
+      <description value="Provides metrics to query performance data of a specific SOAP request." />
+    </information>
+  </extension>
+  <extension id="com.dynatrace.diagnostics.plugins.SOAPPlugin.migrator" point="com.dynatrace.diagnostics.pdk.migrator">
+    <migration classname="SOAP.SOAPMonitor" configid="com.dynatrace.diagnostics.plugins.SOAPPlugin" maxSourceVersion="4.0.0.2562" minSourceVersion="1.0.0.0" />
+  </extension>
+</plugin>
+

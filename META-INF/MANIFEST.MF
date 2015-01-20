@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Implementation-Version: 4.0.0.2599
+Bundle-ClassPath: .,lib/commons-httpclient-3.1.jar,lib/org.apache.comm
+ ons.codec_1.3.0.v20080530-1600.jar,lib/org.apache.commons.logging_1.0
+ .4.v20080605-1930.jar
+Built-By: SYSTEM
+Bundle-Name: com.dynatrace.diagnostics.plugin.UrlMonitor
+Created-By: 19.0-b09 (Sun Microsystems Inc.)
+Require-Bundle: com.dynatrace.diagnostics.sdk
+Ant-Version: Apache Ant 1.7.1
+Bundle-Vendor: dynaTrace software GmbH
+Bundle-Version: 6.1.0.7859
+Dynatrace-Plugin-Types: metric, monitor
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: com.dynatrace.diagnostics.plugin.SOAPMonitor;sing
+ leton:=true
+Import-Package: org.apache.commons.logging
+
