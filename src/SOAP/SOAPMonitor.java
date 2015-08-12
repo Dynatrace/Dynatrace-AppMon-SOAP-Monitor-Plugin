@@ -477,7 +477,7 @@ public class SOAPMonitor implements Monitor, Migrator {
             httpMethod = new HeadMethod(url);
         } else if ("POST".equals(config.method)) {
             httpMethod = new PostMethod(url);
-            httpMethod.setHeader("soapaction", "");
+            httpMethod.setRequestHeader("soapaction", "");
             // set the POST data
             if (config.postData != null && config.postData.length() > 0) {
                 try {
