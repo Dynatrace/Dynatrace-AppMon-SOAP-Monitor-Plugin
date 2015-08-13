@@ -110,6 +110,7 @@
         </visibility>
       </property>
       <property key="ignoreCertificate" label="Disable certificate validation" type="boolean" description="Enable to allow connections via SSL even if the certificate on the target host is invalid or self-signed." default="false" />
+      <property key="httpSOAPHeader" label="Enable SOAPAction Header" type="boolean" description="Enable to send a SOAPAction HTTP header with your request. Useful if your application is returning 500 errors for valid requests." default="false" />
     </configuration>
   </extension>
   <extension point="com.dynatrace.diagnostics.pdk.monitor" id="com.dynatrace.diagnostics.plugin.SOAPMonitor.monitor" name="SOAP Monitor">
