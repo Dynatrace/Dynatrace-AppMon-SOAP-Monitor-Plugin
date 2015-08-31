@@ -213,9 +213,16 @@ public class SOAPMonitor implements Monitor, Migrator {
 
             // calculate header size
             headerSize = calculateHeaderSize(httpMethod.getResponseHeaders());
-            log.fine("Response is: " + httpMethod.getResponseBodyAsString(1000));
-            log.info("HTTP Status Code is: " + httpMethod.getStatusCode());
-            
+            if (log.isLoggable(Level.FINE)) {
+                try {
+                    log.log(Level.FINE, "Response is: {0}", httpMethod.getResponseBodyAsString());
+                } catch (Exception e) {
+                    log.info("Exception thrown on Response Body fine logging: " + e);
+                }
+            }
+            if (log.isLoggable(Level.INFO)) {
+                log.info("HTTP Status Code is: " + httpMethod.getStatusCode());
+            }
 
             // read response data
             InputStream inputStream = httpMethod.getResponseBodyAsStream();
@@ -240,7 +247,6 @@ public class SOAPMonitor implements Monitor, Migrator {
                     }
                 } else if (config.matchContent != MatchContent.disabled) {
                     try {
-                        //log.info("return content is: " + buf.toString());
                         boolean found = buf.toString().contains(config.searchString);
                         if (config.matchContent == MatchContent.successIfMatch) {
                             verified = found;
@@ -312,19 +318,28 @@ public class SOAPMonitor implements Monitor, Migrator {
         // calculate and set the measurements
         Collection<MonitorMeasure> measures = null;
         measures = env.getMonitorMeasures(METRIC_GROUP, MSR_HOST_REACHABLE);
-        log.fine("Measure collection size MSR_HOST_REACHABLE is " + measures.size());
+
+        if (log.isLoggable(Level.FINE)) {
+            log.fine("Measure collection size MSR_HOST_REACHABLE is " + measures.size());
+        }
         if (status.getStatusCode().getBaseCode() == Status.StatusCode.Success.getBaseCode() && (measures = env.getMonitorMeasures(METRIC_GROUP, MSR_HOST_REACHABLE)) != null) {
             for (MonitorMeasure measure : measures) {
                 measure.setValue(httpStatusCode > 0 ? 1 : 0);
             }
         }
-        log.fine("Measure collection size after httpstatuscode is " + measures.size());
+        if (log.isLoggable(Level.FINE)) {
+            log.fine("Measure collection size after httpstatuscode is " + measures.size());
+        }
         if (status.getStatusCode().getCode() == Status.StatusCode.Success.getCode()) {
             if ((measures = env.getMonitorMeasures(METRIC_GROUP, MSR_HEADER_SIZE)) != null) {
-                log.fine("Measure collection size after httpstatuscode is " + measures.size());
+                if (log.isLoggable(Level.FINE)) {
+                    log.fine("Measure collection size after httpstatuscode is " + measures.size());
+                }
 
                 for (MonitorMeasure measure : measures) {
-                    log.fine("Header Size is " + headerSize);
+                    if (log.isLoggable(Level.FINE)) {
+                        log.fine("Header Size is " + headerSize);
+                    }
                     measure.setValue(headerSize);
                 }
 
@@ -332,7 +347,9 @@ public class SOAPMonitor implements Monitor, Migrator {
             if ((measures = env.getMonitorMeasures(METRIC_GROUP, MSR_FIRST_RESPONSE_DELAY)) != null) {
                 double firstResponseTimeMillis = firstResponseTime * MILLIS;
                 for (MonitorMeasure measure : measures) {
-                    log.fine("firstResponseTimeMillis is " + firstResponseTimeMillis);
+                    if (log.isLoggable(Level.FINE)) {
+                        log.fine("firstResponseTimeMillis is " + firstResponseTimeMillis);
+                    }
                     measure.setValue(firstResponseTimeMillis);
                 }
 
@@ -340,14 +357,18 @@ public class SOAPMonitor implements Monitor, Migrator {
             if ((measures = env.getMonitorMeasures(METRIC_GROUP, MSR_RESPONSE_COMPLETE_TIME)) != null) {
                 double responseCompleteTimeMillis = responseCompleteTime * MILLIS;
                 for (MonitorMeasure measure : measures) {
-                    log.fine("responseCompleteTimeMillis is " + responseCompleteTimeMillis);
+                    if (log.isLoggable(Level.FINE)) {
+                        log.fine("responseCompleteTimeMillis is " + responseCompleteTimeMillis);
+                    }
                     measure.setValue(responseCompleteTimeMillis);
                 }
 
             }
             if ((measures = env.getMonitorMeasures(METRIC_GROUP, MSR_RESPONSE_SIZE)) != null) {
                 for (MonitorMeasure measure : measures) {
-                    log.fine("inputSize is " + inputSize);
+                    if (log.isLoggable(Level.FINE)) {
+                        log.fine("inputSize is " + inputSize);
+                    }
                     measure.setValue(inputSize);
                 }
 
@@ -360,14 +381,18 @@ public class SOAPMonitor implements Monitor, Migrator {
                     throughput = contentSizeKibiByte / responseCompleteTimeSecs;
                 }
                 for (MonitorMeasure measure : measures) {
-                    log.fine("throughput is " + throughput);
+                    if (log.isLoggable(Level.FINE)) {
+                        log.fine("throughput is " + throughput);
+                    }
                     measure.setValue(throughput);
                 }
 
             }
             if ((measures = env.getMonitorMeasures(METRIC_GROUP, MSR_HTTP_STATUS_CODE)) != null) {
                 for (MonitorMeasure measure : measures) {
-                    log.fine("httpStatusCode is " + httpStatusCode);
+                    if (log.isLoggable(Level.FINE)) {
+                        log.fine("httpStatusCode is " + httpStatusCode);
+                    }
                     measure.setValue(httpStatusCode);
                 }
 
@@ -375,14 +400,18 @@ public class SOAPMonitor implements Monitor, Migrator {
             if ((measures = env.getMonitorMeasures(METRIC_GROUP, MSR_CONN_CLOSE_DELAY)) != null) {
                 double connectionCloseDelayMillis = connectionCloseDelay * MILLIS;
                 for (MonitorMeasure measure : measures) {
-                    log.fine("connectionCloseDelayMillis is " + connectionCloseDelayMillis);
+                    if (log.isLoggable(Level.FINE)) {
+                        log.fine("connectionCloseDelayMillis is " + connectionCloseDelayMillis);
+                    }
                     measure.setValue(connectionCloseDelayMillis);
                 }
 
             }
             if ((measures = env.getMonitorMeasures(METRIC_GROUP, MSR_CONTENT_VERIFIED)) != null) {
                 for (MonitorMeasure measure : measures) {
-                    log.fine("verified is " + verified);
+                    if (log.isLoggable(Level.FINE)) {
+                        log.fine("verified is " + verified);
+                    }
                     measure.setValue(verified ? 1 : 0);
                 }
 
@@ -483,9 +512,12 @@ public class SOAPMonitor implements Monitor, Migrator {
                     //StringRequestEntity requestEntity = new StringRequestEntity(config.postData, "application/soap+xml", "UTF-8");
                     StringRequestEntity requestEntity = new StringRequestEntity(config.postData, config.contentType, config.characterSet);
                     ((PostMethod) httpMethod).setRequestEntity(requestEntity);
-                    log.info("request url is " + httpMethod.getPath());
-                    log.info("requestEntity content is " + requestEntity.getContent());
-                    log.info("requestEntity content type is " + requestEntity.getContentType());
+                    if (log.isLoggable(Level.INFO)) {
+                        log.info("request url is " + httpMethod.getPath());
+                        log.info("requestEntity content is " + requestEntity.getContent());
+                        log.info("requestEntity content type is " + requestEntity.getContentType());
+                    }
+
                 } catch (UnsupportedEncodingException uee) {
                     if (log.isLoggable(Level.WARNING)) {
                         log.warning("Encoding POST data failed: " + uee);

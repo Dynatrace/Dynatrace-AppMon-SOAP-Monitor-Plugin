@@ -50,7 +50,7 @@
           <item value="Expected size in bytes" />
         </list>
       </property>
-      <property key="searchString" label="Search string" type="string" description="Enter a case-sensitive string to search for in the retrieved webpage. If 'Success if match' is configured and the webpage contains the string, the measure will yield 1, otherwise 0." default="" multiline="false">
+      <property key="searchString" label="Search string" type="string" description="Enter a case-sensitive string to search for in the retrieved SOAP response. If 'Success if match' is configured and the SOAP Response contains the string, the measure will yield 1, otherwise 0." default="" multiline="false">
         <visibility>
           <rule key="matchContent" value="Success if match" />
           <rule key="matchContent" value="Error if match" />
@@ -104,7 +104,7 @@
         </visibility>
       </property>
       <property key="dtTagging" label="dynaTrace Tagging" type="boolean" description="Enable dynaTrace tagging." default="true" />
-      <property key="dtTimerName" label="timer name" type="string" description="Identify this webrequest through a unique timer name. The timer name will be sent with each web request as a dynaTrace header field value." default="" multiline="false">
+      <property key="dtTimerName" label="timer name" type="string" description="Identify this SOAP request through a unique timer name. The timer name will be sent with each web request as a dynaTrace header field value." default="" multiline="false">
         <visibility>
           <rule key="dtTagging" value="true" />
         </visibility>
@@ -135,4 +135,3 @@
     <migration classname="SOAP.SOAPMonitor" configid="com.dynatrace.diagnostics.plugins.SOAPPlugin" maxSourceVersion="4.0.0.2562" minSourceVersion="1.0.0.0" />
   </extension>
 </plugin>
-
