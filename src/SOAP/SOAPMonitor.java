@@ -9,6 +9,8 @@ import java.net.URL;
 import java.util.Collection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.UUID;
+import java.util.Random;
 
 import com.dynatrace.diagnostics.pdk.*;
 import org.apache.commons.httpclient.Header;
@@ -36,6 +38,8 @@ import org.apache.commons.httpclient.protocol.Protocol;
 import org.apache.commons.httpclient.util.EncodingUtil;
 
 import com.dynatrace.diagnostics.global.Constants;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.net.ssl.SSLHandshakeException;
 
@@ -52,7 +56,10 @@ public class SOAPMonitor implements Monitor, Migrator {
     private static final String CONFIG_METHOD = "method";
     private static final String CONFIG_CONTENT_TYPE = "contentType";
     private static final String CONFIG_CHARACTER_SET = "characterSet";
+    private static final String CONFIG_HEADER_DATA_ENABLED = "httpSOAPHeader";
+    private static final String CONFIG_HEADER_DATA = "soapActionHeader";
     private static final String CONFIG_POST_DATA = "postData";
+    private static final String CONFIG_SOAP_SUBSTITUTION = "SOAPSubstitutionMode";
     private static final String CONFIG_USER_AGENT = "userAgent";
     private static final String CONFIG_HTTP_VERSION = "httpVersion";
     private static final String CONFIG_MAX_REDIRECTS = "maxRedirects";
@@ -179,7 +186,15 @@ public class SOAPMonitor implements Monitor, Migrator {
         }
 
         // create a HTTP client and method
+        boolean soapActionHeaderEnabled = env.getConfigBoolean(CONFIG_HEADER_DATA_ENABLED);
+
         HttpMethodBase httpMethod = createHttpMethod(config);
+        if (soapActionHeaderEnabled) {
+            String soapActionHeader = env.getConfigString(CONFIG_HEADER_DATA);
+            log.info("SOAPAction Header set to: " + soapActionHeader);
+            httpMethod.setRequestHeader("SOAPAction", soapActionHeader);
+        }
+
         if (httpMethod == null) {
             status.setMessage("Unknown HTTP method: " + config.method);
             status.setStatusCode(Status.StatusCode.ErrorInternal);
@@ -213,13 +228,19 @@ public class SOAPMonitor implements Monitor, Migrator {
 
             // calculate header size
             headerSize = calculateHeaderSize(httpMethod.getResponseHeaders());
-            if (log.isLoggable(Level.FINE)) {
+            /*if (log.isLoggable(Level.FINE)) {
                 try {
                     log.log(Level.FINE, "Response is: {0}", httpMethod.getResponseBodyAsString());
                 } catch (Exception e) {
                     log.info("Exception thrown on Response Body fine logging: " + e);
                 }
+            }*/
+
+            String responseBody = httpMethod.getResponseBodyAsString();
+            if (log.isLoggable(Level.FINE)) {
+                log.log(Level.FINE, "Response is: {0}", responseBody);
             }
+
             if (log.isLoggable(Level.INFO)) {
                 log.info("HTTP Status Code is: " + httpMethod.getStatusCode());
             }
@@ -439,7 +460,45 @@ public class SOAPMonitor implements Monitor, Migrator {
         config.url = new URL(protocol, env.getHost().getAddress(), port, path);
         //config.method = env.getConfigString(CONFIG_METHOD) == null ? "GET" : env.getConfigString(CONFIG_METHOD).toUpperCase();
         config.method = "POST";
-        config.postData = env.getConfigString(CONFIG_POST_DATA);
+        String originalPostData = env.getConfigString(CONFIG_POST_DATA);
+        String substituteMethod = env.getConfigString(CONFIG_SOAP_SUBSTITUTION);
+        String newPostData = "";
+        switch (substituteMethod) {
+
+            case "Random UUID":
+                newPostData = addRandomUUIDs(originalPostData);
+                break;
+            case "Random Float":
+                newPostData = addRandomFloats(originalPostData);
+                break;
+
+            case "Random int":
+                newPostData = addRandomInts(originalPostData);
+                break;
+
+            case "Random Double":
+                newPostData = addRandomDoubles(originalPostData);
+                break;
+
+            case "Random Gaussian":
+                newPostData = addRandomGaussians(originalPostData);
+                break;
+
+            case "Random Long":
+                newPostData = addRandomLongs(originalPostData);
+                break;
+
+            case "All":
+                newPostData = addRandomUUIDs(originalPostData);
+                newPostData = addRandomFloats(newPostData);
+                newPostData = addRandomInts(newPostData);
+                newPostData = addRandomDoubles(newPostData);
+                newPostData = addRandomGaussians(newPostData);
+                newPostData = addRandomLongs(newPostData);
+                break;
+
+        }
+        config.postData = newPostData;
         config.contentType = env.getConfigString(CONFIG_CONTENT_TYPE);
         config.characterSet = env.getConfigString(CONFIG_CHARACTER_SET);
         config.httpVersion = env.getConfigString(CONFIG_HTTP_VERSION);
@@ -512,7 +571,7 @@ public class SOAPMonitor implements Monitor, Migrator {
                     //StringRequestEntity requestEntity = new StringRequestEntity(config.postData, "application/soap+xml", "UTF-8");
                     StringRequestEntity requestEntity = new StringRequestEntity(config.postData, config.contentType, config.characterSet);
                     ((PostMethod) httpMethod).setRequestEntity(requestEntity);
-                    if (log.isLoggable(Level.INFO)) {
+                    if (log.isLoggable(Level.FINE)) {
                         log.info("request url is " + httpMethod.getPath());
                         log.info("requestEntity content is " + requestEntity.getContent());
                         log.info("requestEntity content type is " + requestEntity.getContentType());
@@ -614,4 +673,138 @@ public class SOAPMonitor implements Monitor, Migrator {
             }
         }
     }
+
+    public String addRandomUUIDs(String originalPostData) {
+        int i = 0;
+        String uuidCheck = "\\$\\{\\=java\\.util\\.UUID\\.randomUUID\\(\\)\\}";
+        Pattern p = Pattern.compile(uuidCheck);
+        Matcher m = p.matcher(originalPostData);
+        while (m.find()) {
+            i++;
+        }
+
+        for (int j = 1; j <= i; j++) {
+            UUID myRandomUUID = java.util.UUID.randomUUID();
+            originalPostData = originalPostData.replaceFirst(uuidCheck, myRandomUUID.toString());
+        }
+        log.log(Level.FINE, "postData now is " + originalPostData);
+        return originalPostData;
+
+    }
+    
+    public String addRandomFloats(String originalPostData) {
+        int i = 0;
+        String floatCheck = "\\$\\{\\=java\\.util\\.Random\\.nextFloat\\(\\)}";
+        Random floatRandom = new Random();
+        Float myFloat = floatRandom.nextFloat();
+        
+        Pattern p = Pattern.compile(floatCheck);
+        
+        Matcher m = p.matcher(originalPostData);
+        while (m.find()) {
+            i++;
+        }
+
+        for (int j = 1; j <= i; j++) {
+            
+            originalPostData = originalPostData.replaceFirst(floatCheck, myFloat.toString());
+        }
+        log.log(Level.FINE, "postData now is " + originalPostData);
+        return originalPostData;
+
+    }
+    
+    public String addRandomInts(String originalPostData) {
+        int i = 0;
+        String intCheck = "\\$\\{\\=java\\.util\\.Random\\.nextInt\\(\\)}";
+        
+        Random intRandom = new Random();
+        int myInt = intRandom.nextInt();
+        
+        Pattern p = Pattern.compile(intCheck);
+        
+        Matcher m = p.matcher(originalPostData);
+        while (m.find()) {
+            i++;
+        }
+
+        for (int j = 1; j <= i; j++) {
+            
+            originalPostData = originalPostData.replaceFirst(intCheck, new Integer(myInt).toString());
+        }
+        log.log(Level.FINE, "postData now is " + originalPostData);
+        return originalPostData;
+
+    }
+    
+    public String addRandomDoubles(String originalPostData) {
+        int i = 0;
+        String doubleCheck = "\\$\\{\\=java\\.util\\.Random\\.nextDouble\\(\\)}";
+        
+        Random doubleRandom = new Random();
+        Double myDouble = doubleRandom.nextDouble();
+        
+        Pattern p = Pattern.compile(doubleCheck);
+        
+        Matcher m = p.matcher(originalPostData);
+        while (m.find()) {
+            i++;
+        }
+
+        for (int j = 1; j <= i; j++) {
+            
+            originalPostData = originalPostData.replaceFirst(doubleCheck, myDouble.toString());
+        }
+        log.log(Level.FINE, "postData now is " + originalPostData);
+        return originalPostData;
+
+    }
+    
+    public String addRandomGaussians(String originalPostData) {
+        int i = 0;
+        String gaussianCheck = "\\$\\{\\=java\\.util\\.Random\\.nextGaussian\\(\\)}";
+        
+        Random gaussianRandom = new Random();
+        Double myDouble = gaussianRandom.nextGaussian();
+        
+        Pattern p = Pattern.compile(gaussianCheck);
+        
+        Matcher m = p.matcher(originalPostData);
+        while (m.find()) {
+            i++;
+        }
+
+        for (int j = 1; j <= i; j++) {
+            
+            originalPostData = originalPostData.replaceFirst(gaussianCheck, myDouble.toString());
+        }
+        log.log(Level.FINE, "postData now is " + originalPostData);
+        return originalPostData;
+
+    }
+    
+    public String addRandomLongs(String originalPostData) {
+        int i = 0;
+        String longCheck = "\\$\\{\\=java\\.util\\.Random\\.nextLong\\(\\)}";
+        
+        Random longRandom = new Random();
+        Long myLong = longRandom.nextLong();
+        
+        Pattern p = Pattern.compile(longCheck);
+        
+        Matcher m = p.matcher(originalPostData);
+        while (m.find()) {
+            i++;
+        }
+
+        for (int j = 1; j <= i; j++) {
+            
+            originalPostData = originalPostData.replaceFirst(longCheck, myLong.toString());
+        }
+        log.log(Level.FINE, "postData now is " + originalPostData);
+        return originalPostData;
+
+    }
+    
+    
 }

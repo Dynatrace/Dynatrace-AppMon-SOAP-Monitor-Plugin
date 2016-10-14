@@ -33,7 +33,21 @@
       <property key="path" label="Path" type="string" description="Enter the path to the webpage to be monitored. Example: /index.html" default="/" multiline="false" />
       <property key="contentType" label="Content Type" type="string" description="Content Type of SOAP call&#xA;SOAP 1.1=&quot;text/xml&quot;&#xA;SOAP 1.2=&quot;application/soap+xml&quot;" default="text/xml" multiline="false" />
       <property key="characterSet" label="Character Set" type="string" description="UTF character setting" default="utf-8" multiline="false" />
+      <property key="httpSOAPHeader" label="Enable SOAPAction Header" type="boolean" description="Enable to send a SOAPAction HTTP header with your request. Useful if your application is returning 500 errors for valid requests." default="false" />
+      <property key="soapActionHeader" label="SOAP Action Header" type="string" description="SOAP Action Header" default="http://electrocommerce.org/abc#MyMessage" multiline="false" />
       <property key="postData" label="SOAP Envelope POST Data" type="string" description="The SOAP Envelope data which will be sent with the POST request." default="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&lt;soap:Envelope xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:soap=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;&lt;soap:Body&gt;&lt;Add xmlns=&quot;http://tempuri.org/&quot;&gt;&lt;intA&gt;int&lt;/intA&gt;&lt;intB&gt;int&lt;/intB&gt;&lt;/Add&gt;&lt;/soap:Body&gt;&lt;/soap:Envelope&gt;" multiline="true" />
+      <property key="SOAPSubstitutionMode" label="SOAP Envelope Substitution Mode" type="list" description="Allows for random UUID, Float, int, Double, Gaussian, and/or Long substitution into the SOAP Body.  These following tags will be searched and replaced with their commensurate random generations.  Mutliple tags can be specified within the body.&#xA;&#xA;UUID -&gt; ${=java.util.UUID.randomUUID()}&#xA;Float -&gt; ${=java.util.Random.nextFloat()}&#xA;int -&gt; ${=java.util.Random.nextInt()}&#xA;Double -&gt; ${=java.util.Random.nextDouble()}&#xA;Gaussian -&gt; ${=java.util.Random.nextGaussian()}&#xA;Long -&gt; ${=java.util.Random.nextLong()}" default="None">
+        <list>
+          <item value="None" />
+          <item value="Random UUID" />
+          <item value="Random Float" />
+          <item value="Random int" />
+          <item value="Random Double" />
+          <item value="Random Gaussian" />
+          <item value="Random Long" />
+          <item value="All" />
+        </list>
+      </property>
       <property key="httpVersion" label="HTTP version" type="list" description="The version of the HTTP protocol. HTTP/1.1 is the recommended." default="1.1">
         <list>
           <item value="1.1" />
@@ -50,10 +64,10 @@
           <item value="Expected size in bytes" />
         </list>
       </property>
-      <property key="searchString" label="Search string" type="string" description="Enter a case-sensitive string to search for in the retrieved SOAP response. If 'Success if match' is configured and the SOAP Response contains the string, the measure will yield 1, otherwise 0." default="" multiline="false">
+      <property key="searchString" label="Search string" type="string" description="Enter a case-sensitive string to search for in the retrieved webpage. If 'Success if match' is configured and the webpage contains the string, the measure will yield 1, otherwise 0." default="" multiline="false">
         <visibility>
-          <rule key="matchContent" value="Success if match" />
           <rule key="matchContent" value="Error if match" />
+          <rule key="matchContent" value="Success if match" />
         </visibility>
       </property>
       <property key="compareBytes" label="Bytes" type="long" description="Enter the number of bytes expected for the response." default="0">
@@ -104,7 +118,7 @@
         </visibility>
       </property>
       <property key="dtTagging" label="dynaTrace Tagging" type="boolean" description="Enable dynaTrace tagging." default="true" />
-      <property key="dtTimerName" label="timer name" type="string" description="Identify this SOAP request through a unique timer name. The timer name will be sent with each web request as a dynaTrace header field value." default="" multiline="false">
+      <property key="dtTimerName" label="timer name" type="string" description="Identify this webrequest through a unique timer name. The timer name will be sent with each web request as a dynaTrace header field value." default="" multiline="false">
         <visibility>
           <rule key="dtTagging" value="true" />
         </visibility>
