@@ -13,6 +13,8 @@ import java.util.UUID;
 import java.util.Random;
 
 import com.dynatrace.diagnostics.pdk.*;
+
+import java.util.Base64;
 import org.apache.commons.httpclient.Header;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpConnectionManager;
@@ -69,6 +71,7 @@ public class SOAPMonitor implements Monitor, Migrator {
     private static final String CONFIG_SEARCH_STRING = "searchString";
     private static final String CONFIG_COMPARE_BYTES = "compareBytes";
     private static final String CONFIG_SERVER_AUTH = "serverAuth";
+    private static final String CONFIG_USE_BASIC = "useBasic";
     private static final String CONFIG_SERVER_USERNAME = "serverUsername";
     private static final String CONFIG_SERVER_PASSWORD = "serverPassword";
     private static final String CONFIG_USE_PROXY = "useProxy";
@@ -119,6 +122,7 @@ public class SOAPMonitor implements Monitor, Migrator {
 //		int maxOccurrences;
         // server authentification
         boolean serverAuth;
+        boolean useBasic;
         String serverUsername;
         String serverPassword;
         // proxy
@@ -529,6 +533,7 @@ public class SOAPMonitor implements Monitor, Migrator {
 
         config.serverAuth = env.getConfigBoolean(CONFIG_SERVER_AUTH) == null ? false : env.getConfigBoolean(CONFIG_SERVER_AUTH);
         if (config.serverAuth) {
+        	config.useBasic = env.getConfigBoolean(CONFIG_USE_BASIC);
             config.serverUsername = env.getConfigString(CONFIG_SERVER_USERNAME);
             config.serverPassword = env.getConfigPassword(CONFIG_SERVER_PASSWORD);
         }
@@ -607,16 +612,24 @@ public class SOAPMonitor implements Monitor, Migrator {
 
         // set server authentication credentials
         if (config.serverAuth) {
-            URI uri = httpMethod.getURI();
-            String host = uri.getHost();
-            int port = uri.getPort();
-            if (port <= 0) {
-                Protocol protocol = Protocol.getProtocol(uri.getScheme());
-                port = protocol.getDefaultPort();
-            }
-//			UsernamePasswordCredentials credentials = new UsernamePasswordCredentials(config.serverUsername, config.serverPassword);
-            NTCredentials credentials = new NTCredentials(config.serverUsername, config.serverPassword, host, host);
-            httpClient.getState().setCredentials(new AuthScope(host, port, AuthScope.ANY_REALM), credentials);
+        	//If we know we want to use basic auth - we just add the authentication header to the request
+        	if (config.useBasic){
+        		log.fine("Using basic authentication...");
+        		String creds = config.serverUsername + ":" + config.serverPassword;
+        		httpMethod.addRequestHeader("Authorization", "Basic " + Base64.getEncoder().encodeToString((creds).getBytes()));
+        	}
+        	else { //Otherwise use the original authentication mechanism
+                URI uri = httpMethod.getURI();
+                String host = uri.getHost();
+                int port = uri.getPort();
+                if (port <= 0) {
+                    Protocol protocol = Protocol.getProtocol(uri.getScheme());
+                    port = protocol.getDefaultPort();
+                }
+                //UsernamePasswordCredentials credentials = new UsernamePasswordCredentials(config.serverUsername, config.serverPassword);
+                NTCredentials credentials = new NTCredentials(config.serverUsername, config.serverPassword, host, host);
+                httpClient.getState().setCredentials(new AuthScope(host, port, AuthScope.ANY_REALM), credentials);
+        	}
         }
 
         // set proxy and credentials

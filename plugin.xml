@@ -76,6 +76,7 @@
         </visibility>
       </property>
       <property key="serverAuth" label="Server authorization" type="boolean" description="If the SOAP specified requires a name and password for access, server authorization needs to be enabled." default="false" />
+      <property key="useBasic" label="Use Basic" type="boolean" description="My property description ..." default="true" />
       <property key="serverUsername" label="Server username" type="string" description="The username that is used for authorization with the server." default="" multiline="false">
         <visibility>
           <rule key="serverAuth" value="true" />
