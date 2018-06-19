@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+    <classpathentry kind="src" path="src"/>
+    <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+    <classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
+    <classpathentry kind="lib" path="lib/commons-httpclient-3.1.jar"/>
+    <classpathentry kind="lib" path="lib/org.apache.commons.codec_1.3.0.v20080530-1600.jar"/>
+    <classpathentry kind="lib" path="lib/org.apache.commons.logging_1.0.4.v20080605-1930.jar"/>
+    <classpathentry kind="output" path="bin"/>
+</classpath>

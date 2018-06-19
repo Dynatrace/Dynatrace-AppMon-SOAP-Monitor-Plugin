@@ -465,9 +465,14 @@ public class SOAPMonitor implements Monitor, Migrator {
         String newPostData = "";
         switch (substituteMethod) {
 
-            case "Random UUID":
+        	case "None": //I had to add this case - in the release this was added it wasn't here so the post data would be empty if "None" was used - James K
+        		newPostData = originalPostData;
+        		break;
+            
+        	case "Random UUID":
                 newPostData = addRandomUUIDs(originalPostData);
                 break;
+                
             case "Random Float":
                 newPostData = addRandomFloats(originalPostData);
                 break;
