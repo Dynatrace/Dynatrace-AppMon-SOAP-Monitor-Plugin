@@ -51,6 +51,7 @@ public class SOAPMonitor implements Monitor, Migrator {
     private static final double MILLIS = 0.000001;
     private static final double SECS = 0.000000001;
     // configuration constants
+    private static final String CONFIG_SOAP_HTTP_HEADER = "httpSOAPHeader";
     private static final String CONFIG_PROTOCOL = "protocol";
     private static final String CONFIG_PATH = "path";
     private static final String CONFIG_HTTP_PORT = "httpPort";
@@ -132,6 +133,7 @@ public class SOAPMonitor implements Monitor, Migrator {
         boolean proxyAuth;
         String proxyUsername;
         String proxyPassword;
+        boolean httpSOAPHeader;
         long compareBytes;
     }
     private Config config;
@@ -530,7 +532,7 @@ public class SOAPMonitor implements Monitor, Migrator {
         }
         config.searchString = env.getConfigString(CONFIG_SEARCH_STRING) == null ? "" : env.getConfigString(CONFIG_SEARCH_STRING);
         config.compareBytes = env.getConfigLong(CONFIG_COMPARE_BYTES) == null ? 0 : env.getConfigLong(CONFIG_COMPARE_BYTES);
-
+        config.httpSOAPHeader = env.getConfigBoolean(CONFIG_SOAP_HTTP_HEADER) == null ? false : env.getConfigBoolean(CONFIG_SOAP_HTTP_HEADER);
         config.serverAuth = env.getConfigBoolean(CONFIG_SERVER_AUTH) == null ? false : env.getConfigBoolean(CONFIG_SERVER_AUTH);
         if (config.serverAuth) {
         	config.useBasic = env.getConfigBoolean(CONFIG_USE_BASIC);
@@ -575,6 +577,9 @@ public class SOAPMonitor implements Monitor, Migrator {
             httpMethod = new HeadMethod(url);
         } else if ("POST".equals(config.method)) {
             httpMethod = new PostMethod(url);
+            if (config.httpSOAPHeader) {
+            httpMethod.setRequestHeader("soapaction", "");
+            }
             // set the POST data
             if (config.postData != null && config.postData.length() > 0) {
                 try {
